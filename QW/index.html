@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="qwApp">
+    <head>
+        <!--[if lte IE 8]>
+            <script>
+              document.createElement('ng-include');
+              document.createElement('ng-pluralize');
+              document.createElement('ng-view');
+
+              // Optionally these for CSS
+              document.createElement('ng:include');
+              document.createElement('ng:pluralize');
+              document.createElement('ng:view');
+            </script>
+        <![endif]-->
+        <!--[if lte IE 7]>
+            <script src="Scripts/json3.min.js"></script>
+        <![endif]-->
+        <script src="Scripts/jquery-1.9.1.min.js"></script>
+        <script src="Scripts/bootstrap.min.js"></script>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/angular-resource.js"></script>
+        <script src="Scripts/angular-route.js"></script>
+        <script src="Scripts/controllers.js"></script>
+        <script src="Scripts/services.js"></script>
+        <script src="Scripts/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
+        <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="Content/index.css" rel="stylesheet" />
+        <title>QW</title>
+    </head>
+    <body ng-controller="MainCtrl">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#/pronosticos">Quiniela</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <p class="navbar-text" ng-show="userAuthenticated">Participante:&nbsp;{{user}}</p>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li ng-class="{active:isPathActive('/login')}" ng-hide="userAuthenticated"><a href="#/login">Entrar</a></li>
+                    <li ng-class="{active:isPathActive('/pronosticos')}" ng-show="userAuthenticated"><a href="#/pronosticos">Pronosticos</a></li>
+                    <li ng-class="{active:isPathActive('/puntajes')}" ng-show="userAuthenticated"><a href="#/puntajes">Puntajes</a></li>
+                    <li ng-class="{active:isPathActive('/reglas')}"><a href="#/reglas">Reglas</a></li>
+                    <li ng-show="userAuthenticated"><a href="javascript:;" ng-click="logout()">Salir</a></li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+        <div id="wrapper">
+            <div ng-view></div>
+        </div>
+    </body>
+</html>

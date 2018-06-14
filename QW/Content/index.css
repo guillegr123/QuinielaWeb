@@ -1,0 +1,158 @@
+﻿html{
+    direction: ltr;
+}
+
+html, body{
+	position: absolute;
+	height: 100%;
+	min-width: 100%;
+	margin: 0px;
+}
+
+html, body, div{
+	border-width: 0px;
+}
+
+#wrapper{
+	position: relative;
+	min-height: 100%;
+}
+
+.content {
+    margin:0px auto;
+    padding-top:70px;
+}
+
+#plogin {
+    width:400px;
+}
+
+#plogin .panel.info {
+    color:#414040;
+    font-size:0.8em;
+    margin-top:10px;
+}
+
+#plogin .panel.info .panel-body{
+    padding-top:7px !important;
+    padding-bottom:7px !important;
+}
+
+#ppronosticos {
+    width:800px;
+}
+
+.partido-vs {
+    height:200px;
+}
+
+.vs {
+    vertical-align:middle;
+    text-align:center;
+    font-size:3em;
+    padding-top:60px;
+}
+
+.pais, .pais img {
+    vertical-align:middle;
+    text-align:center;
+}
+
+.pais img {
+    max-height:150px;
+}
+
+.txt-medio {
+    font-size: 18px;
+    text-align:center;
+}
+
+.partido-pronostico .txt-medio .btn {
+    margin-top:7px;
+}
+
+.partido-pronostico .txt-medio div, .partido-real .txt-medio div {
+    margin-top:16px;
+}
+
+.marcador {
+    font-size: 3em;
+    text-align:center;
+}
+
+.panel.panel-danger.msj-error .panel-body {
+    background-color:#ffcaca;
+    color:#560101;
+}
+
+#ppuntajes {
+    width:800px;
+}
+
+.premio-label {
+    font-size:1.5em;
+    /*padding-right:0.5em;*/
+}
+
+.premio-monto {
+    font-size:1.5em;
+    font-weight:bold;
+}
+
+#preglas {
+    width:800px;
+}
+
+/* Spinner */
+.spinner {
+  width: 100px;
+}
+.spinner input {
+  text-align: right;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+.fa {
+    margin-top:3px;
+}
+.fa-caret-up {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 4px 8px 4px;
+    border-color: transparent transparent #000 transparent;
+}
+.fa-caret-down {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 8px 4px 0 4px;
+    border-color: #000 transparent transparent;
+}
