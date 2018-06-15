@@ -26,6 +26,7 @@ BEGIN
 					ELSE 1
 				END AS MultiplicadorFav
 		) AS CALC
+	WHERE PT.FechaHoraFin < GETUTCDATE()
 	GROUP BY PA.Alias
 	ORDER BY 4 DESC;
 
