@@ -36,7 +36,7 @@ namespace QW.Data.Entities
 
         public static bool PartidoIniciado(DateTime? FechaHoraInicioPartido)
         {
-            return (FechaHoraInicioPartido == null) ? false : DateTime.Now.Subtract((DateTime)FechaHoraInicioPartido).TotalMinutes > -5;
+            return (FechaHoraInicioPartido == null) ? false : DateTime.Now.Subtract((DateTime)FechaHoraInicioPartido).TotalMinutes > -30;
         }
     }
 }
