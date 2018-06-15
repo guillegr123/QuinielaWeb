@@ -36,13 +36,13 @@ qwControllers
         };
     }])
     .controller('LoginCtrl', ['$rootScope', '$scope', '$http', '$location', 'User', function ($rootScope, $scope, $http, $location, User) {
-        $scope.codigo = null;
-        $scope.documento = null;
+        $scope.alias = null;
+        $scope.contrasena = null;
         $scope.msjerror = null;
-        $scope.login = function (codigo, documento) {
-            if (codigo == null || codigo == '' || documento == null || documento == '') return null;
+        $scope.login = function (alias, contrasena) {
+            if (alias == null || alias == '' || contrasena == null || contrasena == '') return null;
             return $http
-              .post('/login', { "codigo": codigo, "documento": documento })
+              .post('/login', { "alias": alias, "contrasena": contrasena })
               .success(function (res) {
                   if (res.resultado) {
                       User.setAuthenticated(true);
@@ -50,8 +50,8 @@ qwControllers
                       $rootScope.user = res.usuario;
                       $location.path('/pronosticos');
                   } else {
-                      $scope.documento = null;
-                      $scope.msjerror = 'Código o DUI no registrado para participar.';
+                      $scope.contrasena = null;
+                      $scope.msjerror = 'Alias o contraseña incorrecta.';
                   }
               }).error(function () {
                   $scope.msjerror = "Se produjo un error al intentar ingresar.";

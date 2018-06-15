@@ -16,8 +16,8 @@ namespace QW.Services.Models.Login
     [Route("/login", "POST, OPTIONS")]
     public class Login : IReturn<LoginResponse>
     {
-        public string Codigo { get; set; }
-        public string Documento { get; set; }
+        public string Alias { get; set; }
+        public string Contrasena { get; set; }
     }
 
     [Api("Logout.")]

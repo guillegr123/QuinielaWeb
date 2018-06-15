@@ -6,8 +6,6 @@ namespace QW.App_Start
 {
     using Funq;
     using QW.Data;
-    using ServiceStack.Common.Utils;
-    using ServiceStack.OrmLite;
     using ServiceStack.ServiceInterface;
     using ServiceStack.ServiceInterface.Cors;
     using ServiceStack.Text;
@@ -34,7 +32,7 @@ namespace QW.App_Start
 
             //Register dependencies
             QWSessionFactory sf = new QWSessionFactory(ConfigurationManager.ConnectionStrings["qwdb"].ConnectionString);
-            container.Register<NHibernate.ISession>(c=> sf.Factory.OpenSession()).ReusedWithin(ReuseScope.Request);
+            container.Register(c=> sf.Factory.OpenSession()).ReusedWithin(ReuseScope.Request);
             //container.RegisterAutoWiredAs<RepositoryProductMongo, IRepositoryProduct>();
             //container.RegisterAutoWiredAs<RepositoryVendorMongo, IRepositoryVendor>();
 

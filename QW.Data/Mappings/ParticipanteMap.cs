@@ -8,7 +8,6 @@ namespace QW.Data.Mappings
         public ParticipanteMap()
         {
             Table("Participante");
-            ReadOnly();
             Id(x => x.IdParticipante).UnsavedValue(0).GeneratedBy.Native();
             Map(x => x.Alias).Not.Nullable().Length(100);
             Map(x => x.Contrasena).Not.Nullable().Length(1000);
