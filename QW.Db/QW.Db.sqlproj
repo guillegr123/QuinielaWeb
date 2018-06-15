@@ -61,6 +61,7 @@
     <Folder Include="Esquema\dbo" />
     <Folder Include="Esquema\dbo\Tablas" />
     <Folder Include="Esquema\dbo\Procedimientos" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Esquema\dbo\Tablas\Etapa.sql" />
@@ -74,5 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="QW.Db.publish.xml" />
+    <None Include="Scripts\DatosIniciales.sql" />
   </ItemGroup>
 </Project>
