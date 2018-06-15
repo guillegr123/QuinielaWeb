@@ -57,5 +57,17 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Esquema" />
+    <Folder Include="Esquema\dbo" />
+    <Folder Include="Esquema\dbo\Tablas" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Esquema\dbo\Tablas\Etapa.sql" />
+    <Build Include="Esquema\dbo\Tablas\Participante.sql" />
+    <Build Include="Esquema\dbo\Tablas\Partido.sql" />
+    <Build Include="Esquema\dbo\Tablas\Pronostico.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="QW.Db.refactorlog" />
   </ItemGroup>
 </Project>

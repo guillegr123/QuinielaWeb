@@ -38,7 +38,7 @@ namespace QW.Data
         {
             Assembly currentAssembly = Assembly.GetAssembly(this.GetType());
             FluentConfiguration fc = Fluently.Configure()
-                        .Database(MsSqlConfiguration.MsSql2005.ConnectionString(_ConnectionString))
+                        .Database(MsSqlConfiguration.MsSql2012.ConnectionString(_ConnectionString))
                         .Mappings(
                                 m =>
                                 {
