@@ -9,7 +9,7 @@ namespace QW.Data.Mappings
         {
             Table("Participante");
             Id(x => x.IdParticipante).UnsavedValue(0).GeneratedBy.Native();
-            Map(x => x.Alias).Not.Nullable().Length(100);
+            Map(x => x.Alias).Not.Nullable().Length(100).ReadOnly();
             Map(x => x.Contrasena).Not.Nullable().Length(1000);
         }
     }
