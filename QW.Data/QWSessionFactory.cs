@@ -1,14 +1,9 @@
-﻿using Disdivsa.Web.Mvc.Dominio.NHibernate.Fluent;
-using FluentNHibernate.Cfg;
+﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernateEnvironment = NHibernate.Cfg.Environment;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using QW.Data.NHibernate.Fluent;
 
 namespace QW.Data
 {
@@ -44,7 +39,8 @@ namespace QW.Data
                                 {
                                     m.FluentMappings
                                         .AddFromAssembly(currentAssembly)
-                                        .Conventions.Add<StringSqlTypeConvention>();
+                                        .Conventions
+                                            .Add<StringSqlTypeConvention>();
                                     m.HbmMappings.AddFromAssembly(currentAssembly);
                                 }
                             );

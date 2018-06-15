@@ -8,7 +8,7 @@
                 <div class="panel-body">
                     <div class="panel ng-class:{'panel-info':p.definido&&!p.iniciado&&!p.finalizado,'panel-default':!p.definido,'panel-primary':p.iniciado&&!p.finalizado,'panel-success':p.finalizado&&p.marcadorAcertado,'panel-warning':p.finalizado&&!p.marcadorAcertado&&p.resultadoAcertado,'panel-danger':p.finalizado&&!p.marcadorAcertado&&!p.resultadoAcertado}" ng-repeat="p in e.partidos">
                         <div class="panel-heading">
-                            {{(p.lugar||'Lugar no definido') + '&nbsp;-&nbsp;' + (p.fechaHoraInicio||'Fecha y hora no definidas')}}&emsp;<span style="font-weight:bold" ng-show="p.iniciado&&!p.finalizado">(Jugando)</span><span style="font-weight:bold" ng-show="p.finalizado">(Finalizado)</span>
+                            {{(p.lugar||'Lugar no definido')}}&nbsp;-&nbsp;{{((p.fechaHoraInicio | date:'short')||'Fecha y hora no definidas')}}&emsp;<span style="font-weight:bold" ng-show="p.iniciado&&!p.finalizado">(Jugando)</span><span style="font-weight:bold" ng-show="p.finalizado">(Finalizado)</span>
                         </div>
                         <div class="panel-body">
                             <div class="row partido-vs">

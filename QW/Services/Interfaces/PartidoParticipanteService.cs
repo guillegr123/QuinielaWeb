@@ -82,7 +82,7 @@ namespace QW.Services.Interfaces
                                             GolesPronostico1 = y.GolesPronostico1,
                                             GolesPronostico2 = y.GolesPronostico2,
                                             IdPartido = y.IdPartido,
-                                            FechaHoraInicio = (y.FechaHoraInicio == null) ? "-" : y.FechaHoraInicio.ToString("dd/MM/yyyy h:mm tt"),
+                                            FechaHoraInicio = y.FechaHoraInicio,
                                             Lugar = y.Lugar,
                                             Iniciado = Partido.PartidoIniciado(y.FechaHoraInicio),
                                             Finalizado = DateTime.Now.Subtract(y.FechaHoraFin).TotalMinutes > 0
