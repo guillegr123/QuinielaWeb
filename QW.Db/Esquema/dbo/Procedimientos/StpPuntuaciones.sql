@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[StpPuntuaciones]
 AS
+BEGIN
 	SELECT
 		PA.Alias                    Participante,
 		SUM(CALC.MarcadorAcertado)  MarcadoresAcertados,
@@ -26,4 +27,7 @@ AS
 				END AS MultiplicadorFav
 		) AS CALC
 	GROUP BY PA.Alias
-RETURN 0
+	ORDER BY 4 DESC;
+
+	RETURN 0;
+END
