@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QW", "QW\QW.csproj", "{A1F253C6-F913-4971-AB6E-AA3FDA622EFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QW.Data", "QW.Data\QW.Data.csproj", "{D33A4EF6-A2F2-4B18-AA4E-FD84CEC8259B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "QW.Db", "QW.Db\QW.Db.sqlproj", "{20805955-FAFE-489D-B591-0428ADB2BA6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,8 +23,17 @@ Global
 		{D33A4EF6-A2F2-4B18-AA4E-FD84CEC8259B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D33A4EF6-A2F2-4B18-AA4E-FD84CEC8259B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D33A4EF6-A2F2-4B18-AA4E-FD84CEC8259B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20805955-FAFE-489D-B591-0428ADB2BA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20805955-FAFE-489D-B591-0428ADB2BA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20805955-FAFE-489D-B591-0428ADB2BA6F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{20805955-FAFE-489D-B591-0428ADB2BA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20805955-FAFE-489D-B591-0428ADB2BA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20805955-FAFE-489D-B591-0428ADB2BA6F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32ECB08E-547D-410B-862A-7DB8C3C46706}
 	EndGlobalSection
 EndGlobal

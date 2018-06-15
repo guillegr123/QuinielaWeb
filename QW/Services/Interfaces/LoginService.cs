@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using QW.Extensions.String;
 
 namespace QW.Services.Interfaces
 {
@@ -28,7 +29,7 @@ namespace QW.Services.Interfaces
                 throw new ArgumentNullException("Codigo");
             }
             var query = QwNhSession.QueryOver<Participante>()
-                            .Where(x => x.CodigoEmpleado == credenciales.Codigo && x.Dui == credenciales.Documento);
+                            .Where(x => x.Alias == credenciales.Alias);
 
             Participante p = query.SingleOrDefault();
             if (p == null)
@@ -37,14 +38,24 @@ namespace QW.Services.Interfaces
             }
             else
             {
-                base.Session.Set<int>("IdParticipante", p.IdParticipante);
-                return new LoginResponse() { Resultado = true, Usuario = p.Nombre };
+                if (string.IsNullOrEmpty(p.Contrasena))
+                {
+                    p.Contrasena = credenciales.Contrasena.ToSha256();
+                    QwNhSession.Update(p);
+                }
+                else if (p.Contrasena != credenciales.Contrasena.ToSha256())
+                {
+                    return new LoginResponse() { Resultado = false };
+                }
+
+                base.Session.Set("IdParticipante", p.IdParticipante);
+                return new LoginResponse() { Resultado = true, Usuario = p.Alias };
             }
         }
 
         public object Get(Logout credenciales)
         {
-            Session.Set<int>("IdParticipante", 0);
+            Session.Set("IdParticipante", 0);
             return new LoginResponse() { Resultado = true };
         }
     }

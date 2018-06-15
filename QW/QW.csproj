@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -91,6 +93,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ESP.png" />
+    <Content Include="Content\images\PRT.png" />
+    <Content Include="Content\images\IRN.png" />
+    <Content Include="Content\images\MAR.png" />
+    <Content Include="Content\images\URY.png" />
+    <Content Include="Content\images\EGY.png" />
+    <Content Include="Content\images\SAU.png" />
+    <Content Include="Content\images\RUS.png" />
     <Content Include="Content\images\ARG.png" />
     <Content Include="Content\images\BEL.png" />
     <Content Include="Content\images\BRA.png" />
@@ -413,8 +423,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Properties\PublishProfiles\QuinielaWebLive.pubxml" />
-    <None Include="Properties\PublishProfiles\QuinielaWebTest.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -427,6 +435,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\QWAppHost.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

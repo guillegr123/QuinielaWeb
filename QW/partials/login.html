@@ -2,20 +2,17 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Ingresar</div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form" ng-submit="login(codigo, documento);">
+            <form class="form-horizontal" role="form" ng-submit="login(alias, contrasena);">
                 <div class="form-group ng-class:{'has-error':(msjerror!=null)}">
-                    <label for="codigo" class="control-label col-xs-6 col-sm-6 col-md-6">Carnet de empleado</label>
-                    <div class="col-xs-6 col-sm-6 col-md-6"><input type="text" class="form-control" id="codigo" placeholder="Código" ng-model="codigo"></div>
+                    <label for="alias" class="control-label col-xs-3 col-sm-3 col-md-3">Alias</label>
+                    <div class="col-xs-9 col-sm-9 col-md-9"><input type="text" class="form-control" id="alias" placeholder="Alias" ng-model="alias"></div>
                 </div>
                 <div class="form-group ng-class:{'has-error':(msjerror!=null)}">
-                    <label for="documento" class="control-label col-xs-3 col-sm-3 col-md-3">DUI&nbsp;*</label>
-                    <div class="col-xs-9 col-sm-9 col-md-9"><input type="password" class="form-control" id="documento" placeholder="DUI" ng-model="documento"></div>
+                    <label for="contrasena" class="control-label col-xs-3 col-sm-3 col-md-3">Contraseña</label>
+                    <div class="col-xs-9 col-sm-9 col-md-9"><input type="password" class="form-control" id="contasena" placeholder="Contraseña" ng-model="contrasena"></div>
                 </div>
                 <div class="panel panel-sm panel-danger msj-error" ng-show="(msjerror!=null)"><div class="panel-body">{{msjerror}}</div></div>
                 <button type="submit" class="btn btn-primary">Ingresar</button>
-                <div class="panel panel-default info">
-                    <div class="panel-body">*&nbsp;No incluir guiones</div>
-                </div>
             </form>
         </div>
     </div>

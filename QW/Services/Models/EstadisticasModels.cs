@@ -12,13 +12,7 @@ namespace QW.Services.Models.EstadisticasModels
         public string Participante { set; get; }
         public int MarcadoresAcertados { set; get; }
         public int ResultadosAcertados { set; get; }
-        public int Puntos
-        {
-            get
-            {
-                return (MarcadoresAcertados * 2) + ResultadosAcertados;
-            }
-        }
+        public int Puntos { set; get; }
     }
 
     public class Resumen

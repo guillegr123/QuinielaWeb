@@ -1,10 +1,5 @@
 ﻿using FluentNHibernate.Mapping;
 using QW.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QW.Data.Mappings
 {
@@ -19,7 +14,7 @@ namespace QW.Data.Mappings
             Map(x => x.Codigo2).Nullable().Length(3);
             Map(x => x.Equipo1).Nullable().Length(100);
             Map(x => x.Equipo2).Nullable().Length(100);
-            References(x => x.EtapaPartido, "idEtapa")
+            References(x => x.EtapaPartido, "IdEtapa")
                 .Not.Nullable().Cascade.None()
                 .ReadOnly();
             Map(x => x.Goles1).Nullable();
@@ -28,7 +23,7 @@ namespace QW.Data.Mappings
             Map(x => x.FechaHoraFin).Nullable();
             Map(x => x.Lugar).Nullable().Length(100);
             HasMany(x => x.PronosticosPartidos)
-                .KeyColumn("idPartido")
+                .KeyColumn("IdPartido")
                 .Cascade.None()
                 .Inverse();
         }

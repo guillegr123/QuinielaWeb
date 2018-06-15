@@ -3,11 +3,8 @@ using NHibernate.Transform;
 using QW.Data.Entities;
 using QW.Services.Dtos;
 using QW.Services.Models.PartidoParticipante;
-using ServiceStack.ServiceInterface;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace QW.Services.Interfaces
 {
