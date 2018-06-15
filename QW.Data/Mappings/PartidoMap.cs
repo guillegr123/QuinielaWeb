@@ -1,4 +1,5 @@
 ﻿using FluentNHibernate.Mapping;
+using NHibernate.Type;
 using QW.Data.Entities;
 
 namespace QW.Data.Mappings
@@ -19,8 +20,8 @@ namespace QW.Data.Mappings
                 .ReadOnly();
             Map(x => x.Goles1).Nullable();
             Map(x => x.Goles2).Nullable();
-            Map(x => x.FechaHoraInicio).Nullable();
-            Map(x => x.FechaHoraFin).Nullable();
+            Map(x => x.FechaHoraInicio).Nullable().CustomType<UtcDateTimeType>();
+            Map(x => x.FechaHoraFin).Nullable().CustomType<UtcDateTimeType>();
             Map(x => x.Lugar).Nullable().Length(100);
             HasMany(x => x.PronosticosPartidos)
                 .KeyColumn("IdPartido")

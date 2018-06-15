@@ -64,7 +64,7 @@ namespace QW.Services.Models.PartidoParticipante
         }
         public bool Iniciado { set; get; }
         public bool Finalizado { set; get; }
-        public string FechaHoraInicio { set; get; }
+        public DateTime FechaHoraInicio { set; get; }
         public string Lugar { set; get; }
     }
 
