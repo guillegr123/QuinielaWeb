@@ -5,7 +5,7 @@ BEGIN
 		PA.Alias                    Participante,
 		SUM(CALC.MarcadorAcertado)  MarcadoresAcertados,
 		SUM(CALC.ResultadoAcertado) ResultadosAcertados,
-		SUM((CALC.MarcadorAcertado + CALC.ResultadoAcertado) * CALC.MultiplicadorFav) Puntos
+		SUM(((CALC.MarcadorAcertado * 2) + CALC.ResultadoAcertado) * CALC.MultiplicadorFav) Puntos
 	FROM dbo.Participante PA
 		INNER JOIN dbo.Pronostico PR
 			ON PA.IdParticipante = PR.IdParticipante
@@ -14,7 +14,7 @@ BEGIN
 		CROSS APPLY (
 			SELECT
 				CASE
-					WHEN PR.Goles1 = PT.Goles1 AND PR.Goles2 = PT.Goles2 THEN 2
+					WHEN PR.Goles1 = PT.Goles1 AND PR.Goles2 = PT.Goles2 THEN 1
 					ELSE 0
 				END AS MarcadorAcertado,
 				CASE
