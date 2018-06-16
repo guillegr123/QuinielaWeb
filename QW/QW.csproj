@@ -93,6 +93,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\KOR.png" />
+    <Content Include="Content\images\SWE.png" />
+    <Content Include="Content\images\BRA.png" />
+    <Content Include="Content\images\CHE.png" />
+    <Content Include="Content\images\MEX.png" />
+    <Content Include="Content\images\DEU.png" />
+    <Content Include="Content\images\CRI.png" />
+    <Content Include="Content\images\SRB.png" />
     <Content Include="Content\images\NGA.png" />
     <Content Include="Content\images\HRV.png" />
     <Content Include="Content\images\DNK.png" />
