@@ -93,6 +93,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\TUN.png" />
+    <Content Include="Content\images\BEL.png" />
+    <Content Include="Content\images\PAN.png" />
     <Content Include="Content\images\KOR.png" />
     <Content Include="Content\images\SWE.png" />
     <Content Include="Content\images\BRA.png" />
