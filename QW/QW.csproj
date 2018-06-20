@@ -517,11 +517,15 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="FrontendBuild">
+    <Exec Command="npm install -no-optional" WorkingDirectory="..\QW.Frontend\" />
+    <Exec Command="npm run build" WorkingDirectory="..\QW.Frontend\" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
   -->
+  <Target Name="AfterBuild" DependsOnTargets="FrontendBuild">
+  </Target>
 </Project>
