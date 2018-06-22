@@ -6,6 +6,7 @@ namespace QW.App_Start
 {
     using Funq;
     using QW.Data;
+    using QW.Handlers;
     using ServiceStack.ServiceInterface;
     using ServiceStack.ServiceInterface.Cors;
     using ServiceStack.Text;
@@ -46,6 +47,18 @@ namespace QW.App_Start
             {
                 //DebugMode = true //Show StackTraces for easier debugging (default auto inferred by Debug/Release builds)
             });
+
+            var basePath = HttpRuntime.AppDomainAppPath + "wwwroot\\";
+
+            // Server static files
+            CatchAllHandlers.Add(
+                (httpMethod, pathInfo, filePath) =>
+                    StaticFileHandler.Factory(
+                        basePath,
+                        "/",
+                        pathInfo
+                )
+            );
         }
 
 

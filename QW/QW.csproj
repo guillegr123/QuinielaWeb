@@ -455,6 +455,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\StaticFileHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Dtos\EtapaPartidoPronostico.cs" />
     <Compile Include="Services\Interfaces\EstadisticasService.cs" />
@@ -493,7 +494,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\" />
     <Content Include="wwwroot\**" />
   </ItemGroup>
   <PropertyGroup>
