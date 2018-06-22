@@ -6,39 +6,37 @@
           <v-ons-icon icon="fa-bars"></v-ons-icon>
         </v-ons-toolbar-button>
       </div>
-      <div class="center">{{ msg }}</div>
+      <div class="center">Quiniela Mundial 2018</div>
     </v-ons-toolbar>
 
-    <div class="header">
-      <img src="../assets/logo.png" alt="vue-logo">
-    </div>
-
-    <v-ons-list-title>Vue.js Essential Links</v-ons-list-title>
-    <v-ons-list>
-      <v-ons-list-item v-for="item in essentialLinks" @click="goTo(item.link)" :key="item.link">
-        <div class="left"><v-ons-icon fixed-width :icon="item.icon"></v-ons-icon></div>
-        <div class="center">{{ item.label }}</div>
-        <div class="right"><v-ons-icon icon="fa-external-link"></v-ons-icon></div>
-      </v-ons-list-item>
-    </v-ons-list>
-
-    <v-ons-list-title>Vue.js Ecosystem</v-ons-list-title>
-    <v-ons-row>
-      <v-ons-col>
-        <v-ons-card @click="goTo('http://router.vuejs.org/')">vue-router</v-ons-card>
-      </v-ons-col>
-      <v-ons-col>
-        <v-ons-card @click="goTo('http://vuex.vuejs.org/')">vuex</v-ons-card>
-      </v-ons-col>
-    </v-ons-row>
-    <v-ons-row>
-      <v-ons-col>
-        <v-ons-card @click="goTo('http://vue-loader.vuejs.org/')">vue-loader</v-ons-card>
-      </v-ons-col>
-      <v-ons-col>
-        <v-ons-card @click="goTo('https://github.com/vuejs/awesome-vue')">awesome-vue</v-ons-card>
-      </v-ons-col>
-    </v-ons-row>
+    <v-ons-card>
+      <div class="title">
+        Iniciar sesión
+      </div>
+      <div class="content">
+        <v-ons-list>
+          <v-ons-list-item>
+            <div class="center">
+              
+              <ons-row>
+                <ons-col width="100%">
+                  <v-ons-input placeholder="Alias" float v-model="alias">
+                  </v-ons-input>
+                </ons-col>
+              </ons-row>
+              <ons-row>
+                <ons-col width="100%">
+                  <v-ons-input placeholder="Contraseña" float v-model="contrasena">
+                  </v-ons-input>
+                </ons-col>
+              </ons-row>
+            </div>
+          </v-ons-list-item>
+          <v-ons-list-item>
+          </v-ons-list-item>
+        </v-ons-list>
+      </div>
+    </v-ons-card>
 
   </v-ons-page>
 </template>
@@ -48,41 +46,8 @@ export default {
   name: 'home',
   data () {
     return {
-      msg: 'Welcome',
-      essentialLinks: [
-        {
-          label: 'Core Docs',
-          link: 'https://vuejs.org',
-          icon: 'fa-book'
-        },
-        {
-          label: 'Community Chat',
-          link: 'https://chat.vuejs.org',
-          icon: 'fa-commenting'
-        },
-        {
-          label: 'Forum',
-          link: 'https://forum.vuejs.org',
-          icon: 'fa-comments'
-        },
-        {
-          label: 'Twitter',
-          link: 'https://twitter.com/vuejs',
-          icon: 'fa-twitter'
-        },
-        {
-          label: 'Docs for this template',
-          link: 'http://vuejs-templates.github.io/webpack/',
-          icon: 'fa-file-text'
-        }
-      ]
-    }
-  },
-  methods: {
-    goTo (url) {
-      const newWindow = window.open(url, '_blank')
-      newWindow.opener = null
-      newWindow.location = url
+      alias: '',
+      contrasena: ''
     }
   }
 }
@@ -106,11 +71,27 @@ ons-list-title:not(:first-of-type) {
   margin-top: 30px;
 }
 
+@media (min-width: 500px) {
+  ons-card {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 ons-card {
   text-align: center;
 }
 
 ons-list-item, ons-card {
   cursor: pointer;
+}
+
+ons-input {
+    width: 100%;
+}
+
+ons-row {
+  padding-bottom: 2em;
 }
 </style>

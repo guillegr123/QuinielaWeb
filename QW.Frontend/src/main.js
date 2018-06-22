@@ -11,6 +11,8 @@ import * as VOns from './vue-onsen-components'
 import store from './store'
 import App from './App'
 
+$ons.platform.select('android')
+
 Vue.config.productionTip = false
 
 Vue.use($ons)
