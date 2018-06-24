@@ -10,7 +10,7 @@ axios.defaults.withCredentials = true
 //axios.defaults.cros = true
 
 export default {
-  iniciarSesionEnApi (contexto: any, usuario: string, contrasena: string): Promise<any> {
+  iniciarSesion (contexto: any, usuario: string, contrasena: string): Promise<any> {
     return axios.post(API_LOGIN_URL, { 'alias': usuario, 'contrasena': contrasena })
       /*
         ({

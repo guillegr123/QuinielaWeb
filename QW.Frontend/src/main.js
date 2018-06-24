@@ -22,6 +22,14 @@ Object.values(VOns).forEach(comp => Vue.component(comp.name, comp))
 new Vue({
   el: '#app',
   store,
-  template: '<App/>',
-  components: { App }
+  template: `<v-ons-navigator swipeable
+  :page-stack="pageStack"
+  @push-page="pageStack.push($event)"
+></v-ons-navigator>`,
+  components: { App },
+  data () {
+    return {
+      pageStack: [ App ]
+    }
+  }
 })

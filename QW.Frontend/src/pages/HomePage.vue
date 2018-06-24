@@ -9,6 +9,8 @@
       <div class="center">Quiniela Mundial 2018</div>
     </v-ons-toolbar>
 
+    <v-ons-progress-bar indeterminate v-show="procesando"></v-ons-progress-bar>
+
     <v-ons-card>
       <div class="title">
         Iniciar sesión
@@ -26,7 +28,7 @@
               </ons-row>
               <ons-row>
                 <ons-col width="100%">
-                  <v-ons-input placeholder="Contraseña" float v-model="inicioSesion.contrasena">
+                  <v-ons-input placeholder="Contraseña" type="password" float v-model="inicioSesion.contrasena">
                   </v-ons-input>
                 </ons-col>
               </ons-row>
@@ -46,7 +48,7 @@
 </template>
 
 <script>
-// let autenticacion = require('./../modules/autenticacion')
+import MainPage from './MainPage'
 import autenticacion from './../modules/autenticacion'
 
 export default {
@@ -57,19 +59,24 @@ export default {
         alias: '',
         contrasena: null,
         msjError: null
-      }
+      },
+      procesando: false
     }
   },
   methods: {
     iniciarSesion () {
-      autenticacion.iniciarSesionEnApi(this, this.inicioSesion.alias, this.inicioSesion.contrasena)
+      this.procesando = true
+      autenticacion.iniciarSesion(this, this.inicioSesion.alias, this.inicioSesion.contrasena)
         .then((res) => {
           if (res.msjError) {
             this.inicioSesion.contrasena = null
-            this.msjError = res.msjError
+            this.inicioSesion.msjError = res.msjError
           } else {
-            this.msjError = null
+            this.inicioSesion.msjError = null
+            this.$emit('push-page', MainPage)
           }
+          this.procesando = false
+          // this.$emit('push-page', MainPage)
         })
     }
   }
