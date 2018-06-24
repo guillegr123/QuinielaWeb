@@ -21,5 +21,7 @@ namespace QW.Services.Dtos
         public DateTime FechaHoraInicio { set; get; }
         public DateTime FechaHoraFin { get; set; }
         public string Lugar { get; set; }
+        public short NumJornada { get; set; }
+        public string Fase { get; set; }
     }
 }

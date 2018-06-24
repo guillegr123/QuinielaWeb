@@ -59,20 +59,26 @@ namespace QW.Services.Interfaces
                         .Select(x => x.FechaHoraInicio).WithAlias(() => pp.FechaHoraInicio)
                         .Select(x => x.FechaHoraFin).WithAlias(() => pp.FechaHoraFin)
                         .Select(x => x.Lugar).WithAlias(() => pp.Lugar)
+                        .Select(x => x.NumJornada).WithAlias(() => pp.NumJornada)
+                        .Select(x => x.Fase).WithAlias(() => pp.Fase)
                         )
                     .OrderBy(x => x.FechaHoraInicio).Asc
                     .TransformUsing(Transformers.AliasToBean<EtapaPartidoPronostico>());
 
             return new PartidosParticipanteResponse
             {
-                Etapas
-                    = query.List<EtapaPartidoPronostico>().GroupBy(x => x.NumEtapa)
+                Jornadas
+                    = query.List<EtapaPartidoPronostico>().GroupBy(x => x.NumJornada)
                         .Select(x => {
-                                EtapaPartido ep = new EtapaPartido();
-                                ep.NumEtapa = x.Key;
-                                ep.NombreEtapa = x.First().Etapa;
+                                JornadaFasePartido ep = new JornadaFasePartido();
+                                ep.NumJornada = x.Key;
+                                ep.Fase = x.First().Fase;
                                 ep.Partidos
-                                    = x.Select(y => new PartidoParticipante() {
+                                    = x.OrderBy(y => y.NumEtapa)
+                                        .Select(y => new PartidoParticipante()
+                                        {
+                                            IdPartido = y.IdPartido,
+                                            NombreEtapa = y.Etapa,
                                             Codigo1 = y.Codigo1,
                                             Codigo2 = y.Codigo2,
                                             Equipo1 = y.Equipo1,
@@ -81,7 +87,6 @@ namespace QW.Services.Interfaces
                                             Goles2 = y.Goles2,
                                             GolesPronostico1 = y.GolesPronostico1,
                                             GolesPronostico2 = y.GolesPronostico2,
-                                            IdPartido = y.IdPartido,
                                             FechaHoraInicio = y.FechaHoraInicio,
                                             Lugar = y.Lugar,
                                             Iniciado = Partido.PartidoIniciado(y.FechaHoraInicio),

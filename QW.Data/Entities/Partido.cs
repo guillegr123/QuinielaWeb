@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QW.Data.Entities
 {
@@ -18,6 +15,8 @@ namespace QW.Data.Entities
         public virtual DateTime? FechaHoraInicio { set; get; }
         public virtual DateTime? FechaHoraFin { set; get; }
         public virtual string Lugar { set; get; }
+        public virtual string Fase { set; get; }
+        public virtual short NumJornada { set; get; }
         public virtual Etapa EtapaPartido { set; get; }
         public virtual IList<Pronostico> PronosticosPartidos { set; get; }
 

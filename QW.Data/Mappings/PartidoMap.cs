@@ -23,6 +23,8 @@ namespace QW.Data.Mappings
             Map(x => x.FechaHoraInicio).Nullable().CustomType<UtcDateTimeType>();
             Map(x => x.FechaHoraFin).Nullable().CustomType<UtcDateTimeType>();
             Map(x => x.Lugar).Nullable().Length(100);
+            Map(x => x.Fase).Nullable().Length(30);
+            Map(x => x.NumJornada).Not.Nullable();
             HasMany(x => x.PronosticosPartidos)
                 .KeyColumn("IdPartido")
                 .Cascade.None()

@@ -13,7 +13,7 @@ namespace QW.Services.Models.PartidoParticipante
 
     public class PartidosParticipanteResponse
     {
-        public IList<EtapaPartido> Etapas { get; set; }
+        public IList<JornadaFasePartido> Jornadas { get; set; }
     }
 
     /// <summary>
@@ -25,6 +25,7 @@ namespace QW.Services.Models.PartidoParticipante
     public class PartidoParticipante //: IReturn<PartidoParticipanteResponse>
     {
         public int IdPartido { get; set; }
+        public string NombreEtapa { set; get; }
         public string Codigo1 { get; set; }
         public string Equipo1 { get; set; }
         public string Codigo2 { get; set; }
@@ -68,14 +69,14 @@ namespace QW.Services.Models.PartidoParticipante
         public string Lugar { set; get; }
     }
 
-    public class EtapaPartido
+    public class JornadaFasePartido
     {
-        public int NumEtapa { set; get; }
-        public string NombreEtapa { set; get; }
+        public int NumJornada { set; get; }
+        public string Fase { set; get; }
         public bool Activa { set; get; }
         public IList<PartidoParticipante> Partidos { get; set; }
 
-        public EtapaPartido()
+        public JornadaFasePartido()
         {
             Partidos = new List<PartidoParticipante>();
         }
