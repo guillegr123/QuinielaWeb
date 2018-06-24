@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import HomePage from './pages/HomePage'
+import HomePage from './pages/LoginPage'
 import MenuPage from './pages/MenuPage'
 
 export default {
@@ -31,7 +31,7 @@ export default {
     }
   },
   components: {
-    HomePage,
+    LoginPage,
     MenuPage
   }
 }
