@@ -62,7 +62,6 @@ export default {
   },
   methods: {
     iniciarSesion () {
-      console.log(autenticacion)
       autenticacion.iniciarSesionEnApi(this, this.inicioSesion.alias, this.inicioSesion.contrasena)
         .then((res) => {
           if (res.msjError) {
