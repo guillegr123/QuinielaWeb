@@ -41,4 +41,8 @@ export default {
 ons-splitter-side[side=left][animation=overlay] {
   border-right: 1px solid #BBB;
 }
+
+.red.label {
+  color: #B03060;
+}
 </style>

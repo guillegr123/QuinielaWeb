@@ -19,6 +19,23 @@ export default new Vuex.Store({
           }
         }
       }
+    },
+    usuario: {
+      namespaced: true,
+      state: {
+        estaAutenticado: true,
+        nombreUsuario: null
+      },
+      mutations: {
+        establecer (state, nombreUsuario) {
+          state.nombreUsuario = nombreUsuario
+          state.estaAutenticado = true
+        },
+        limpiar (state) {
+          state.nombreUsuario = null
+          state.estaAutenticado = false
+        }
+      }
     }
   }
 })

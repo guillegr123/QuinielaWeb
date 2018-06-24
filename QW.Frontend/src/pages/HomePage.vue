@@ -20,19 +20,23 @@
               
               <ons-row>
                 <ons-col width="100%">
-                  <v-ons-input placeholder="Alias" float v-model="alias">
+                  <v-ons-input placeholder="Alias" float v-model="inicioSesion.alias">
                   </v-ons-input>
                 </ons-col>
               </ons-row>
               <ons-row>
                 <ons-col width="100%">
-                  <v-ons-input placeholder="Contraseña" float v-model="contrasena">
+                  <v-ons-input placeholder="Contraseña" float v-model="inicioSesion.contrasena">
                   </v-ons-input>
                 </ons-col>
               </ons-row>
             </div>
           </v-ons-list-item>
+          <v-ons-list-item v-show="inicioSesion.msjError">
+            <div class="red label">{{ inicioSesion.msjError }}</div>
+          </v-ons-list-item>
           <v-ons-list-item>
+            <v-ons-button style="margin: 6px 0" @click="iniciarSesion">Iniciar sesión</v-ons-button>
           </v-ons-list-item>
         </v-ons-list>
       </div>
@@ -42,12 +46,32 @@
 </template>
 
 <script>
+// let autenticacion = require('./../modules/autenticacion')
+import autenticacion from './../modules/autenticacion'
+
 export default {
   name: 'home',
   data () {
     return {
-      alias: '',
-      contrasena: ''
+      inicioSesion: {
+        alias: '',
+        contrasena: null,
+        msjError: null
+      }
+    }
+  },
+  methods: {
+    iniciarSesion () {
+      console.log(autenticacion)
+      autenticacion.iniciarSesionEnApi(this, this.inicioSesion.alias, this.inicioSesion.contrasena)
+        .then((res) => {
+          if (res.msjError) {
+            this.inicioSesion.contrasena = null
+            this.msjError = res.msjError
+          } else {
+            this.msjError = null
+          }
+        })
     }
   }
 }
