@@ -52,7 +52,7 @@ import MainPage from './MainPage'
 import autenticacion from './../modules/autenticacion'
 
 export default {
-  name: 'home',
+  name: 'main',
   data () {
     return {
       inicioSesion: {

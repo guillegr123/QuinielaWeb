@@ -4,7 +4,7 @@
       <v-ons-splitter-side swipeable collapse width="250px"
         :animation="$ons.platform.isAndroid() ? 'overlay' : 'reveal'"
         :open.sync="menuIsOpen">
-        <menu-page></menu-page>
+        <login-page></login-page>
       </v-ons-splitter-side>
 
       <v-ons-splitter-content>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import HomePage from './pages/LoginPage'
+import LoginPage from './pages/LoginPage'
 import MenuPage from './pages/MenuPage'
 
 export default {

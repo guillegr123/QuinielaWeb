@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {AxiosRequestConfig} from 'axios'
 
 const API_URL = 'http://localhost:60402'
 
