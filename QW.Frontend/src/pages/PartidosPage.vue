@@ -60,7 +60,7 @@ export default {
   computed: {
     title () {
       if (this.internalTabs.length === 0) return 'Partidos'
-      return this.internalTabs[this.activeIndex].label
+      return 'Fase ' + this.internalTabs[this.activeIndex].label
     },
     tabs () {
       if (this.internalTabs.length === 0) {
