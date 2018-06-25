@@ -48,11 +48,10 @@
 </template>
 
 <script>
-import MainPage from './MainPage'
-import autenticacion from './../modules/autenticacion'
+import servicioAutenticacion from './../modules/autenticacion'
 
 export default {
-  name: 'main',
+  name: 'login',
   data () {
     return {
       inicioSesion: {
@@ -66,17 +65,19 @@ export default {
   methods: {
     iniciarSesion () {
       this.procesando = true
-      autenticacion.iniciarSesion(this, this.inicioSesion.alias, this.inicioSesion.contrasena)
+      servicioAutenticacion.iniciarSesion(this, this.inicioSesion.alias, this.inicioSesion.contrasena)
         .then((res) => {
           if (res.msjError) {
             this.inicioSesion.contrasena = null
             this.inicioSesion.msjError = res.msjError
           } else {
             this.inicioSesion.msjError = null
-            this.$emit('push-page', MainPage)
+            this.$store.commit('splitter/toggle', false)
+            console.log('Login exitoso. Yendo a pagina principal...')
+            this.$router.push('principal')
           }
+          this.$router.push('principal')
           this.procesando = false
-          // this.$emit('push-page', MainPage)
         })
     }
   }

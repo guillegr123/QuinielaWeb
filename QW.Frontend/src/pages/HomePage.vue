@@ -1,5 +1,5 @@
 <template>
-  <v-ons-page id="principal">
+  <v-ons-page id="app">
     <v-ons-splitter>
       <v-ons-splitter-side swipeable collapse width="250px"
         :animation="$ons.platform.isAndroid() ? 'overlay' : 'reveal'"
@@ -8,18 +8,18 @@
       </v-ons-splitter-side>
 
       <v-ons-splitter-content>
-        <partidos-page></partidos-page>
+        <login-page></login-page>
       </v-ons-splitter-content>
     </v-ons-splitter>
   </v-ons-page>
 </template>
 
 <script>
-import PartidosPage from './PartidosPage'
+import LoginPage from './LoginPage'
 import MenuPage from './MenuPage'
 
 export default {
-  name: 'principal',
+  name: 'app',
   computed: {
     menuIsOpen: {
       get () {
@@ -31,11 +31,18 @@ export default {
     }
   },
   components: {
-    PartidosPage,
+    LoginPage,
     MenuPage
   }
 }
 </script>
 
 <style>
+ons-splitter-side[side=left][animation=overlay] {
+  border-right: 1px solid #BBB;
+}
+
+.red.label {
+  color: #B03060;
+}
 </style>

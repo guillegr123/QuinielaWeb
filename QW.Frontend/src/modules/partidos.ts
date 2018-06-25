@@ -11,9 +11,10 @@ export default {
   obtenerPronosticosParticipante ():  Promise<any> {
     return axios.get(API_PARTIDOS_URL)
       .then((res) => {
-        
+        return res.data
       }).catch((error) => {
-
+        console.log(error)
+        return { error: true }
       })
   }
 }
