@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap-4-grid": "^2.4.0",
     "font-awesome": "^4.7.0",
     "npm": "^6.1.0",
     "onsenui": "~2.8.2",

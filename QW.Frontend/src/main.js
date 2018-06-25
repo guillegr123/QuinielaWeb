@@ -4,6 +4,7 @@
 import 'font-awesome/css/font-awesome.css'
 import 'onsenui/css/onsenui-core.css'
 import 'onsenui/css/onsen-css-components.css'
+import 'bootstrap-4-grid/css/grid.min.css'
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
