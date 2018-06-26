@@ -1,8 +1,6 @@
 ﻿using ServiceStack.ServiceHost;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace QW.Services.Models.PartidoParticipante
 {
@@ -13,7 +11,14 @@ namespace QW.Services.Models.PartidoParticipante
 
     public class PartidosParticipanteResponse
     {
-        public IList<JornadaFasePartido> Jornadas { get; set; }
+        public IList<Etapa> Etapas { get; set; }
+    }
+
+    public class Etapa
+    {
+        public string Nombre { set; get; }
+        public IList<Etapa> SubEtapas { set; get; }
+        public IList<PartidoParticipante> Partidos { set; get; }
     }
 
     /// <summary>
@@ -25,7 +30,6 @@ namespace QW.Services.Models.PartidoParticipante
     public class PartidoParticipante //: IReturn<PartidoParticipanteResponse>
     {
         public int IdPartido { get; set; }
-        public string NombreEtapa { set; get; }
         public string Codigo1 { get; set; }
         public string Equipo1 { get; set; }
         public string Codigo2 { get; set; }
@@ -69,23 +73,10 @@ namespace QW.Services.Models.PartidoParticipante
         public string Lugar { set; get; }
     }
 
-    public class JornadaFasePartido
-    {
-        public int NumJornada { set; get; }
-        public string Fase { set; get; }
-        public bool Activa { set; get; }
-        public IList<PartidoParticipante> Partidos { get; set; }
-
-        public JornadaFasePartido()
-        {
-            Partidos = new List<PartidoParticipante>();
-        }
-    }
-
     [Api("Get all pronosticos for participante.")]
-    [Route("/participante/pronosticos", "GET, OPTIONS")]
+    [Route("/participante/pronosticos/{EtapaNivel1}", "GET, OPTIONS")]
     public class PartidosParticipante : IReturn<PartidosParticipanteResponse>
     {
-        //public int? IdParticipante { get; set; }
+        public string EtapaNivel1 { get; set; }
     }
 }
