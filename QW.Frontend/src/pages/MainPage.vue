@@ -8,14 +8,14 @@
       </v-ons-splitter-side>
 
       <v-ons-splitter-content>
-        <partidos-page></partidos-page>
+        <jornadas-page></jornadas-page>
       </v-ons-splitter-content>
     </v-ons-splitter>
   </v-ons-page>
 </template>
 
 <script>
-import PartidosPage from './PartidosPage'
+import JornadasPage from './JornadasPage'
 import MenuPage from './MenuPage'
 
 export default {
@@ -31,7 +31,7 @@ export default {
     }
   },
   components: {
-    PartidosPage,
+    JornadasPage,
     MenuPage
   }
 }
