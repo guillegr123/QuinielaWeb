@@ -23,25 +23,25 @@
 <script>
 import ServicioPartidos from './../modules/partidos'
 import CargandoPage from './CargandoPage'
-import JornadaPage from './JornadaPage'
+import PartidosPage from './PartidosPage'
 
 export default {
   name: 'jornadas',
   created () {
-    ServicioPartidos.obtenerPronosticosParticipante()
-      .then((partidos) => {
-        if (partidos.error) {
+    ServicioPartidos.obtenerPronosticosParticipante('Grupos')
+      .then((jornadas) => {
+        if (jornadas.error) {
           // TODO: Mostrar mensaje de error
         } else {
-          partidos.jornadas.forEach(p => {
+          jornadas.etapas.forEach(e => {
             this.internalTabs.push({
               icon: null,
-              label: p.fase + ', Jornada ' + p.numJornada,
-              page: JornadaPage,
+              label: e.nombre,
+              page: PartidosPage,
               props: {
-                partidos: p.partidos
+                etapas: e.subEtapas
               },
-              key: p.numJornada.toString()
+              key: e.nombre
             })
           })
         }
