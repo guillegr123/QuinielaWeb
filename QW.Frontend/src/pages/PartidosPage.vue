@@ -13,6 +13,9 @@
           <div class="row">
             <div class="col-sm-12 col-md-6" v-for="partido in etapa.partidos" :key="partido.idPartido">
               <v-ons-card>
+                <div class="sub title">
+                  {{ partido.lugar }}
+                </div>
                 <div class="content">
                   <div class="container">
                     <div class="row">
@@ -74,11 +77,8 @@ export default {
 </script>
 
 <style scoped>
-.versus {
-    vertical-align:middle;
-    text-align:center;
-    font-size:1em;
-    padding-top:1em;
+.sub.title {
+    font-size:0.9em;
 }
 
 .bandera {
