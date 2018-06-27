@@ -89,7 +89,7 @@
 
       <template slot="footer">
         <v-ons-alert-dialog-button @click="dialogoPronosticoVisible = false">Cancelar</v-ons-alert-dialog-button>
-        <v-ons-alert-dialog-button @click="dialogoPronosticoVisible = false">Guardar</v-ons-alert-dialog-button>
+        <v-ons-alert-dialog-button @click="guardarPronostico">Guardar</v-ons-alert-dialog-button>
       </template>
     </v-ons-alert-dialog>
 
@@ -97,6 +97,8 @@
 </template>
 
 <script>
+import ServicioPartidos from './../modules/partidos'
+
 export default {
   name: 'partidos',
   props: [ 'etapas' ],
@@ -116,9 +118,21 @@ export default {
   methods: {
     editarPronostico: function (partido) {
       this.pronostico.partido = partido
-      this.pronostico.goles1 = partido.golesPronostico1
-      this.pronostico.goles2 = partido.golesPronostico2
+      this.pronostico.goles1 = partido.golesPronostico1 || 0
+      this.pronostico.goles2 = partido.golesPronostico2 || 0
       this.dialogoPronosticoVisible = true
+    },
+    guardarPronostico: function () {
+      ServicioPartidos.guardarPronostico(this.pronostico.partido.idPartido, this.pronostico.goles1, this.pronostico.goles2)
+        .then((res) => {
+          if (res.error) {
+            window.alert('Ocurrió un error al intentar guardar el pronóstico. Recargue la página e intente nuevamente.')
+          } else {
+            this.pronostico.partido.golesPronostico1 = this.pronostico.goles1
+            this.pronostico.partido.golesPronostico2 = this.pronostico.goles2
+          }
+          this.dialogoPronosticoVisible = false
+        })
     }
   }
 }

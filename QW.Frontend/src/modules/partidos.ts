@@ -16,5 +16,14 @@ export default {
         console.log(error)
         return { error: true }
       })
+  },
+  guardarPronostico (idPartido: number, goles1: number, goles2: number): Promise<any> {
+    return axios.post(API_PARTIDOS_URL, { idPartido: idPartido, goles1: goles1, goles2: goles2 })
+      .then((res) => {
+        return { error: false }
+      }).catch((error) => {
+        console.log(error)
+        return { error: true }
+      })
   }
 }
