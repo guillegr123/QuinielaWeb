@@ -12,7 +12,7 @@
 
           <div class="row">
             <div class="col-sm-12 col-md-6" v-for="partido in etapa.partidos" :key="partido.idPartido">
-              <v-ons-card>
+              <v-ons-card @click="editarPronostico(partido)">
                 <div class="sub title">
                   {{ partido.lugar }}
                 </div>
@@ -66,13 +66,61 @@
         </div>
       </div>
     </div>
+
+    <v-ons-alert-dialog modifier="rowfooter"
+      :visible.sync="dialogoPronosticoVisible"
+    >
+      <span slot="title">Editar pronóstico</span>
+
+      <div>
+        <ons-row>
+          <ons-col width="100%">
+            <v-ons-input type="number" min="0" max="100" :placeholder="pronostico.partido.equipo1" float v-model="pronostico.goles1">
+            </v-ons-input>
+          </ons-col>
+        </ons-row>
+        <ons-row>
+          <ons-col width="100%">
+            <v-ons-input type="number" min="0" max="100" :placeholder="pronostico.partido.equipo2" float v-model="pronostico.goles2">
+            </v-ons-input>
+          </ons-col>
+        </ons-row>
+      </div>
+
+      <template slot="footer">
+        <v-ons-alert-dialog-button @click="dialogoPronosticoVisible = false">Cancelar</v-ons-alert-dialog-button>
+        <v-ons-alert-dialog-button @click="dialogoPronosticoVisible = false">Guardar</v-ons-alert-dialog-button>
+      </template>
+    </v-ons-alert-dialog>
+
   </v-ons-page>
 </template>
 
 <script>
 export default {
   name: 'partidos',
-  props: [ 'etapas' ]
+  props: [ 'etapas' ],
+  data () {
+    return {
+      dialogoPronosticoVisible: false,
+      pronostico: {
+        partido: {
+          equipo1: '', // Para evitar error de renderizacion
+          equipo2: '' // Para evitar error de renderizacion
+        },
+        goles1: 0,
+        goles2: 0
+      }
+    }
+  },
+  methods: {
+    editarPronostico: function (partido) {
+      this.pronostico.partido = partido
+      this.pronostico.goles1 = partido.golesPronostico1
+      this.pronostico.goles2 = partido.golesPronostico2
+      this.dialogoPronosticoVisible = true
+    }
+  }
 }
 </script>
 
@@ -83,5 +131,13 @@ export default {
 
 .bandera {
   width:100%;
+}
+
+ons-input {
+    width: 100%;
+}
+
+ons-row {
+  padding-bottom: 2em;
 }
 </style>
