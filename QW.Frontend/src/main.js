@@ -35,6 +35,9 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  console.log(to)
+  console.log(from)
+  console.log(next)
   // Reset pageStack to the new route
   store.commit('navigator/reset', to.matched.map(m => m.components.default))
   next()
