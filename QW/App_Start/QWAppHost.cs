@@ -38,7 +38,7 @@ namespace QW.App_Start
             //container.RegisterAutoWiredAs<RepositoryVendorMongo, IRepositoryVendor>();
 
             //Enable CORS
-            Plugins.Add(new CorsFeature());
+            Plugins.Add(new CorsFeature()); //Plugins.Add(new CorsFeature(allowCredentials: true, allowOriginWhitelist: new[] { "http://localhost:8080" }));
 
             //Enable session
             Plugins.Add(new SessionFeature());
