@@ -76,7 +76,7 @@ export default {
             console.log('Login exitoso. Yendo a pagina principal...')
             // this.$router.push('principal')
           }
-          this.$router.push('principal/grupos')
+          this.$router.push('principal/Grupos/partidos')
           this.procesando = false
         })
     }

@@ -34,12 +34,9 @@ const routes = [
     component: MainPage,
     children: [
       {
-        path: 'grupos',
-        component: JornadasPage
-      },
-      {
-        path: 'eliminatorias',
-        component: JornadasPage
+        path: ':etapaNivel1/partidos',
+        component: JornadasPage,
+        props: true
       }
     ]
   }
@@ -55,10 +52,41 @@ router.beforeEach((to, from, next) => {
   console.log(to)
   console.log(from)
   console.log(next)
-  // Reset pageStack to the new route
+  // Reset pageStack to the new route in main navigator
   store.commit('navigator/reset', to.matched[0].components.default)
+
+  // If there is a child route, then set splitter content inner navigator
   if (to.matched.length > 1) {
-    store.commit('innerNavigator/reset', to.matched[1].components.default)
+    var matched1 = to.matched[1]
+    var component = matched1.components.default
+
+    // Get component props, which will indicate expected parameters
+    var localProps = {}
+    Object.keys(component.props).forEach(p => {
+      // console.log('Component prop')
+      // console.log(p)
+      if (to.params[p]) {
+        localProps[p] = to.params[p]
+      }
+    })
+    // console.log('Final props')
+    // console.log(localProps)
+
+    if (Object.keys(localProps).length === 0) {
+      console.log('Pushing component...')
+      store.commit('innerNavigator/reset', component)
+    } else {
+      console.log('Pushing component with props...')
+      store.commit('innerNavigator/reset', {
+        extends: component,
+        props: { etapaNivel1: 'Grupos' },
+        data () {
+          return {
+            params: localProps
+          }
+        }
+      })
+    }
   }
   next()
 })
