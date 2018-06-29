@@ -12,9 +12,12 @@
 
           <div class="row">
             <div class="col-sm-12 col-md-6" v-for="partido in etapa.partidos" :key="partido.idPartido">
-              <v-ons-card @click="editarPronostico(partido)">
+              <v-ons-card @click="editarPronostico(partido)" :class="{ 'bg-danger-lite': partido.finalizado&&!partido.marcadorAcertado&&!partido.resultadoAcertado, 'bg-warning-lite': partido.finalizado&&!partido.marcadorAcertado&&partido.resultadoAcertado, 'bg-success-lite': partido.finalizado&&partido.marcadorAcertado }">
                 <div class="sub title">
                   {{ partido.lugar }}
+                  <br>
+                  <h5>{{ partido.fechaHoraInicio | formatLocalDate }}</h5>
+                  <span style="font-weight:bold" v-show="partido.iniciado&&!partido.finalizado">(Jugando)</span><span style="font-weight:bold" v-show="partido.finalizado">(Finalizado)</span>
                 </div>
                 <div class="content">
                   <div class="container">
@@ -117,10 +120,12 @@ export default {
   },
   methods: {
     editarPronostico: function (partido) {
-      this.pronostico.partido = partido
-      this.pronostico.goles1 = partido.golesPronostico1 || 0
-      this.pronostico.goles2 = partido.golesPronostico2 || 0
-      this.dialogoPronosticoVisible = true
+      if (partido.definido && !partido.iniciado) {
+        this.pronostico.partido = partido
+        this.pronostico.goles1 = partido.golesPronostico1 || 0
+        this.pronostico.goles2 = partido.golesPronostico2 || 0
+        this.dialogoPronosticoVisible = true
+      }
     },
     guardarPronostico: function () {
       ServicioPartidos.guardarPronostico(this.pronostico.partido.idPartido, this.pronostico.goles1, this.pronostico.goles2)
@@ -153,5 +158,17 @@ ons-input {
 
 ons-row {
   padding-bottom: 2em;
+}
+
+.bg-danger-lite {
+  background-color: #ffd9dc !important;
+}
+
+.bg-success-lite {
+  background-color: #bcfdc7 !important;
+}
+
+.bg-warning-lite {
+  background-color: #fff4d3 !important;
 }
 </style>

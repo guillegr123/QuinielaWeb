@@ -10,6 +10,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import $ons from 'vue-onsenui/esm'
 import * as VOns from './vue-onsen-components'
+import moment from 'moment'
 import store from './store'
 import App from './App'
 import HomePage from './pages/HomePage'
@@ -19,6 +20,12 @@ import JornadasPage from './pages/JornadasPage'
 $ons.platform.select('android')
 
 Vue.config.productionTip = false
+
+Vue.filter('formatLocalDate', function (value) {
+  if (value) {
+    return moment(String(value)).local().format('llll')
+  }
+})
 
 Vue.use($ons)
 Object.values(VOns).forEach(comp => Vue.component(comp.name, comp))
