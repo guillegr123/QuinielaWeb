@@ -16,31 +16,34 @@
         Iniciar sesión
       </div>
       <div class="content">
-        <v-ons-list>
-          <v-ons-list-item>
-            <div class="center">
-              
-              <ons-row>
-                <ons-col width="100%">
-                  <v-ons-input placeholder="Alias" float v-model="inicioSesion.alias">
-                  </v-ons-input>
-                </ons-col>
-              </ons-row>
-              <ons-row>
-                <ons-col width="100%">
-                  <v-ons-input placeholder="Contraseña" type="password" float v-model="inicioSesion.contrasena">
-                  </v-ons-input>
-                </ons-col>
-              </ons-row>
-            </div>
-          </v-ons-list-item>
-          <v-ons-list-item v-show="inicioSesion.msjError">
-            <div class="red label">{{ inicioSesion.msjError }}</div>
-          </v-ons-list-item>
-          <v-ons-list-item>
-            <v-ons-button style="margin: 6px 0" @click="iniciarSesion">Iniciar sesión</v-ons-button>
-          </v-ons-list-item>
-        </v-ons-list>
+        <form @submit.prevent="iniciarSesion">
+          <v-ons-list>
+            <v-ons-list-item>
+              <div class="center">
+                
+                <ons-row>
+                  <ons-col width="100%">
+                    <v-ons-input placeholder="Alias" float v-model="inicioSesion.alias">
+                    </v-ons-input>
+                  </ons-col>
+                </ons-row>
+                <ons-row>
+                  <ons-col width="100%">
+                    <v-ons-input placeholder="Contraseña" type="password" float v-model="inicioSesion.contrasena">
+                    </v-ons-input>
+                  </ons-col>
+                </ons-row>
+              </div>
+            </v-ons-list-item>
+            <v-ons-list-item v-show="inicioSesion.msjError">
+              <div class="red label">{{ inicioSesion.msjError }}</div>
+            </v-ons-list-item>
+            <v-ons-list-item>
+              <v-ons-button style="margin: 6px 0" @click="iniciarSesion">Iniciar sesión</v-ons-button>
+              <button type="submit" style="display:none">Submit</button>
+            </v-ons-list-item>
+          </v-ons-list>
+        </form>
       </div>
     </v-ons-card>
 
