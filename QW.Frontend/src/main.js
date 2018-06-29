@@ -57,36 +57,16 @@ router.beforeEach((to, from, next) => {
 
   // If there is a child route, then set splitter content inner navigator
   if (to.matched.length > 1) {
-    var matched1 = to.matched[1]
-    var component = matched1.components.default
+    var component = to.matched[1].components.default
 
-    // Get component props, which will indicate expected parameters
-    var localProps = {}
-    Object.keys(component.props).forEach(p => {
-      // console.log('Component prop')
-      // console.log(p)
-      if (to.params[p]) {
-        localProps[p] = to.params[p]
+    store.commit('innerNavigator/reset', {
+      extends: component,
+      data () {
+        return {
+          routeParams: to.params
+        }
       }
     })
-    // console.log('Final props')
-    // console.log(localProps)
-
-    if (Object.keys(localProps).length === 0) {
-      console.log('Pushing component...')
-      store.commit('innerNavigator/reset', component)
-    } else {
-      console.log('Pushing component with props...')
-      store.commit('innerNavigator/reset', {
-        extends: component,
-        props: { etapaNivel1: 'Grupos' },
-        data () {
-          return {
-            params: localProps
-          }
-        }
-      })
-    }
   }
   next()
 })

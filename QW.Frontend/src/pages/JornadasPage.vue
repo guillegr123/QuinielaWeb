@@ -27,16 +27,8 @@ import PartidosPage from './PartidosPage'
 
 export default {
   name: 'jornadas',
-  props: {
-    // Hack to list required data for navigator
-    // Props will be sent from navigator in this.params
-    etapaNivel1: {
-      type: String,
-      required: false
-    }
-  },
   created () {
-    ServicioPartidos.obtenerPronosticosParticipante(this.params.etapaNivel1)
+    ServicioPartidos.obtenerPronosticosParticipante(this.routeParams.etapaNivel1)
       .then((jornadas) => {
         if (jornadas.error) {
           // TODO: Mostrar mensaje de error
