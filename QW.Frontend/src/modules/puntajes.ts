@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:60402'
+const API_URL = '' // 'http://localhost:60402'
 
 const API_PUNTAJES_URL = API_URL + '/puntajes'
 
