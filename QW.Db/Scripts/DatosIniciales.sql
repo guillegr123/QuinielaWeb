@@ -148,26 +148,26 @@ INSERT [dbo].[Partido] ([IdPartido], [Codigo1], [Codigo2], [Equipo1], [Equipo2],
 VALUES (48, N'PAN', N'TUN', N'Panamá', N'Túnez', 1, 2, CAST(N'2018-06-28 18:00:00.000' AS DateTime), CAST(N'2018-06-28 19:56:40.807' AS DateTime), N'Mordovia Arena, Saransk', 'Grupos', 'Jornada 3', 'Grupo G')
 GO
 INSERT [dbo].[Partido] ([IdPartido], [Codigo1], [Codigo2], [Equipo1], [Equipo2], [Goles1], [Goles2], [FechaHoraInicio], [FechaHoraFin], [Lugar], [EtapaNivel1], [EtapaNivel2], [EtapaNivel3])
-VALUES (49, N'FRA', N'ARG', N'Francia', N'Argentina', NULL, NULL, CAST(N'2018-06-30 14:00:00.000' AS DateTime), CAST(N'2018-06-30 16:00:00.000' AS DateTime), N'Kazán Arena, Kazán', 'Grupos', 'Jornada 3', 'Grupo G')
+VALUES (49, N'FRA', N'ARG', N'Francia', N'Argentina', NULL, NULL, CAST(N'2018-06-30 14:00:00.000' AS DateTime), CAST(N'2018-06-30 16:00:00.000' AS DateTime), N'Kazán Arena, Kazán', 'Eliminatorias', 'Octavos', 'Fecha 1')
 GO
 INSERT [dbo].[Partido] ([IdPartido], [Codigo1], [Codigo2], [Equipo1], [Equipo2], [Goles1], [Goles2], [FechaHoraInicio], [FechaHoraFin], [Lugar], [EtapaNivel1], [EtapaNivel2], [EtapaNivel3])
-VALUES (50, N'URY', N'PRT', N'Uruguay', N'Portugal', NULL, NULL, CAST(N'2018-06-30 18:00:00.000' AS DateTime), CAST(N'2018-06-30 20:00:00.000' AS DateTime), N'Estadio Fisht, Sochi', 'Grupos', 'Jornada 3', 'Grupo G')
+VALUES (50, N'URY', N'PRT', N'Uruguay', N'Portugal', NULL, NULL, CAST(N'2018-06-30 18:00:00.000' AS DateTime), CAST(N'2018-06-30 20:00:00.000' AS DateTime), N'Estadio Fisht, Sochi', 'Eliminatorias', 'Octavos', 'Fecha 1')
 GO
 INSERT [dbo].[Partido] ([IdPartido], [Codigo1], [Codigo2], [Equipo1], [Equipo2], [Goles1], [Goles2], [FechaHoraInicio], [FechaHoraFin], [Lugar], [EtapaNivel1], [EtapaNivel2], [EtapaNivel3])
-VALUES (51, N'ESP', N'RUS', N'España', N'Rusia', NULL, NULL, CAST(N'2018-07-01 14:00:00.000' AS DateTime), CAST(N'2018-07-01 16:00:00.000' AS DateTime), N'Estadio Luzhniki, Moscú', 'Grupos', 'Jornada 3', 'Grupo G')
+VALUES (51, N'ESP', N'RUS', N'España', N'Rusia', NULL, NULL, CAST(N'2018-07-01 14:00:00.000' AS DateTime), CAST(N'2018-07-01 16:00:00.000' AS DateTime), N'Estadio Luzhniki, Moscú', 'Eliminatorias', 'Octavos', 'Fecha 2')
 GO
 INSERT [dbo].[Partido] ([IdPartido], [Codigo1], [Codigo2], [Equipo1], [Equipo2], [Goles1], [Goles2], [FechaHoraInicio], [FechaHoraFin], [Lugar], [EtapaNivel1], [EtapaNivel2], [EtapaNivel3])
-VALUES (52, N'HRV', N'DNK', N'Croacia', N'Dinamarca', NULL, NULL, CAST(N'2018-07-01 18:00:00.000' AS DateTime), CAST(N'2018-07-01 20:00:00.000' AS DateTime), N'Estadio de Nizhni Nóvgorod, Nizhni Nóvgorod', 'Grupos', 'Jornada 3', 'Grupo G')
+VALUES (52, N'HRV', N'DNK', N'Croacia', N'Dinamarca', NULL, NULL, CAST(N'2018-07-01 18:00:00.000' AS DateTime), CAST(N'2018-07-01 20:00:00.000' AS DateTime), N'Estadio de Nizhni Nóvgorod, Nizhni Nóvgorod', 'Eliminatorias', 'Octavos', 'Fecha 2')
 GO
 INSERT [dbo].[Partido] ([IdPartido], [Codigo1], [Codigo2], [Equipo1], [Equipo2], [Goles1], [Goles2], [FechaHoraInicio], [FechaHoraFin], [Lugar], [EtapaNivel1], [EtapaNivel2], [EtapaNivel3])
-VALUES (53, N'BRA', N'MEX', N'Brasil', N'México', NULL, NULL, CAST(N'2018-07-02 14:00:00.000' AS DateTime), CAST(N'2018-07-02 16:00:00.000' AS DateTime), N'Cosmos Arena, Samara', 'Grupos', 'Jornada 3', 'Grupo G')
+VALUES (53, N'BRA', N'MEX', N'Brasil', N'México', NULL, NULL, CAST(N'2018-07-02 14:00:00.000' AS DateTime), CAST(N'2018-07-02 16:00:00.000' AS DateTime), N'Cosmos Arena, Samara', 'Eliminatorias', 'Octavos', 'Fecha 3')
 GO
 INSERT [dbo].[Partido] ([IdPartido], [Codigo1], [Codigo2], [Equipo1], [Equipo2], [Goles1], [Goles2], [FechaHoraInicio], [FechaHoraFin], [Lugar], [EtapaNivel1], [EtapaNivel2], [EtapaNivel3])
-VALUES (54, N'BEL', N'JPN', N'Bélgica', N'Japón', NULL, NULL, CAST(N'2018-07-02 18:00:00.000' AS DateTime), CAST(N'2018-07-02 20:00:00.000' AS DateTime), N'Rostov Arena, Rostov del Don', 'Grupos', 'Jornada 3', 'Grupo G')
+VALUES (54, N'BEL', N'JPN', N'Bélgica', N'Japón', NULL, NULL, CAST(N'2018-07-02 18:00:00.000' AS DateTime), CAST(N'2018-07-02 20:00:00.000' AS DateTime), N'Rostov Arena, Rostov del Don', 'Eliminatorias', 'Octavos', 'Fecha 3')
 GO
 INSERT [dbo].[Partido] ([IdPartido], [Codigo1], [Codigo2], [Equipo1], [Equipo2], [Goles1], [Goles2], [FechaHoraInicio], [FechaHoraFin], [Lugar], [EtapaNivel1], [EtapaNivel2], [EtapaNivel3])
-VALUES (55, N'SWE', N'CHE', N'Suecia', N'Suiza', NULL, NULL, CAST(N'2018-07-03 14:00:00.000' AS DateTime), CAST(N'2018-07-03 16:00:00.000' AS DateTime), N'Estadio Krestovski, San Petersburgo', 'Grupos', 'Jornada 3', 'Grupo G')
+VALUES (55, N'SWE', N'CHE', N'Suecia', N'Suiza', NULL, NULL, CAST(N'2018-07-03 14:00:00.000' AS DateTime), CAST(N'2018-07-03 16:00:00.000' AS DateTime), N'Estadio Krestovski, San Petersburgo', 'Eliminatorias', 'Octavos', 'Fecha 4')
 GO
 INSERT [dbo].[Partido] ([IdPartido], [Codigo1], [Codigo2], [Equipo1], [Equipo2], [Goles1], [Goles2], [FechaHoraInicio], [FechaHoraFin], [Lugar], [EtapaNivel1], [EtapaNivel2], [EtapaNivel3])
-VALUES (56, N'COL', N'ENG', N'Colombia', N'Inglaterra', NULL, NULL, CAST(N'2018-07-03 18:00:00.000' AS DateTime), CAST(N'2018-07-03 20:00:00.000' AS DateTime), N'Otkrytie Arena (Estadio Spartak), Moscú', 'Grupos', 'Jornada 3', 'Grupo G')
+VALUES (56, N'COL', N'ENG', N'Colombia', N'Inglaterra', NULL, NULL, CAST(N'2018-07-03 18:00:00.000' AS DateTime), CAST(N'2018-07-03 20:00:00.000' AS DateTime), N'Otkrytie Arena (Estadio Spartak), Moscú', 'Eliminatorias', 'Octavos', 'Fecha 4')
 GO
