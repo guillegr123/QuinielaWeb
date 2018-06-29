@@ -58,6 +58,8 @@ namespace QW.Services.Models.PartidoParticipante
             {
                 return
                     Finalizado
+                    && Goles1 != null
+                    && Goles2 != null
                     && (
                         (Goles1 > Goles2 && GolesPronostico1 > GolesPronostico2)
                         ||
