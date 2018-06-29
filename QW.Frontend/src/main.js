@@ -14,6 +14,7 @@ import store from './store'
 import App from './App'
 import HomePage from './pages/HomePage'
 import MainPage from './pages/MainPage'
+import JornadasPage from './pages/JornadasPage'
 
 $ons.platform.select('android')
 
@@ -24,8 +25,24 @@ Object.values(VOns).forEach(comp => Vue.component(comp.name, comp))
 
 Vue.use(VueRouter)
 const routes = [
-  { path: '/', component: HomePage },
-  { path: '/principal', component: MainPage }
+  {
+    path: '/',
+    component: HomePage
+  },
+  {
+    path: '/principal',
+    component: MainPage,
+    children: [
+      {
+        path: 'grupos',
+        component: JornadasPage
+      },
+      {
+        path: 'eliminatorias',
+        component: JornadasPage
+      }
+    ]
+  }
 ]
 
 const router = new VueRouter({
@@ -39,7 +56,10 @@ router.beforeEach((to, from, next) => {
   console.log(from)
   console.log(next)
   // Reset pageStack to the new route
-  store.commit('navigator/reset', to.matched.map(m => m.components.default))
+  store.commit('navigator/reset', to.matched[0].components.default)
+  if (to.matched.length > 1) {
+    store.commit('innerNavigator/reset', to.matched[1].components.default)
+  }
   next()
 })
 

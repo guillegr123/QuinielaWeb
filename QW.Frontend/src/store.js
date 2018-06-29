@@ -59,6 +59,7 @@ export default new Vuex.Store({
           state.stack.push(page)
         },
         reset (state, page) {
+          console.log(state.stack)
           state.stack = Array.isArray(page) ? page : [page || state.stack[0]]
         }
       }
@@ -85,6 +86,7 @@ export default new Vuex.Store({
           state.stack.push(page)
         },
         reset (state, page) {
+          console.log(state.stack)
           state.stack = Array.isArray(page) ? page : [page || state.stack[0]]
         }
       }
