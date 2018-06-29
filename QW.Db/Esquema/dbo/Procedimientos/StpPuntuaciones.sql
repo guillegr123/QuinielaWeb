@@ -28,7 +28,7 @@ BEGIN
 				END AS MultiplicadorFav
 		) AS CALC
 	WHERE PT.FechaHoraFin < GETUTCDATE()
-	GROUP BY PA.Alias
+	GROUP BY PA.Alias, PA.CodigoEquipoFav
 	ORDER BY 4 DESC;
 
 	RETURN 0;
