@@ -49,7 +49,11 @@ namespace QW.Services.Models.PartidoParticipante
         {
             get
             {
-                return Finalizado && Goles1 == GolesPronostico1 && Goles2 == GolesPronostico2;
+                return
+                    Finalizado
+                    && GolesPronostico1 != null
+                    && GolesPronostico2 != null
+                    && Goles1 == GolesPronostico1 && Goles2 == GolesPronostico2;
             }
         }
         public bool ResultadoAcertado
@@ -58,8 +62,8 @@ namespace QW.Services.Models.PartidoParticipante
             {
                 return
                     Finalizado
-                    && Goles1 != null
-                    && Goles2 != null
+                    && GolesPronostico1 != null
+                    && GolesPronostico2 != null
                     && (
                         (Goles1 > Goles2 && GolesPronostico1 > GolesPronostico2)
                         ||
