@@ -16,7 +16,7 @@
     </v-ons-splitter>
 
     <v-ons-alert-dialog modifier="rowfooter"
-      :visible.sync="ayudaVisible()"
+      :visible.sync="ayudaVisible"
     >
       <span slot="title">Ayuda</span>
 
@@ -24,8 +24,8 @@
       Los partidos que se pueden pronosticar son los que están en tarjetas de color blanco.
 
       <template slot="footer">
-        <v-ons-alert-dialog-button @click="esAyudaVisible = false">Ok</v-ons-alert-dialog-button>
-        <v-ons-alert-dialog-button @click="noVolverAMostrarAyuda()">No volver a mostrar</v-ons-alert-dialog-button>
+        <v-ons-alert-dialog-button @click="ocultarAyuda">Ok</v-ons-alert-dialog-button>
+        <v-ons-alert-dialog-button @click="noVolverAMostrarAyuda">No volver a mostrar</v-ons-alert-dialog-button>
       </template>
     </v-ons-alert-dialog>
   </v-ons-page>
@@ -52,9 +52,9 @@ export default {
     },
     ayudaVisible () {
       if (this.esAyudaVisible && !cookies.get('ayuda')) {
-        return true;
+        return true
       }
-      return false;
+      return false
     }
   },
   components: {
@@ -67,6 +67,9 @@ export default {
       this.$router.push({ name: this.$route.matched[this.$route.matched.length - 2].name })
 
       // this.$router.go(-1); // Could work but might be misleading in some situations
+    },
+    ocultarAyuda () {
+      this.esAyudaVisible = false
     },
     noVolverAMostrarAyuda () {
       cookies.set('ayuda', 'true')
