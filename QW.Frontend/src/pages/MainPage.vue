@@ -14,12 +14,27 @@
         ></v-ons-navigator>
       </v-ons-splitter-content>
     </v-ons-splitter>
+
+    <v-ons-alert-dialog modifier="rowfooter"
+      :visible.sync="ayudaVisible()"
+    >
+      <span slot="title">Ayuda</span>
+
+      Para establecer tu pronóstico, presiona el partido que desees, y edita los marcadores en la ventana emergente.
+      Los partidos que se pueden pronosticar son los que están en tarjetas de color blanco.
+
+      <template slot="footer">
+        <v-ons-alert-dialog-button @click="esAyudaVisible = false">Ok</v-ons-alert-dialog-button>
+        <v-ons-alert-dialog-button @click="noVolverAMostrarAyuda()">No volver a mostrar</v-ons-alert-dialog-button>
+      </template>
+    </v-ons-alert-dialog>
   </v-ons-page>
 </template>
 
 <script>
 import MainMenuPage from './MainMenuPage'
 import { mapGetters } from 'vuex'
+import cookies from './../modules/cookies'
 
 export default {
   name: 'principal',
@@ -34,6 +49,12 @@ export default {
       set (newValue) {
         this.$store.commit('splitter/toggle', newValue)
       }
+    },
+    ayudaVisible () {
+      if (this.esAyudaVisible && !cookies.get('ayuda')) {
+        return true;
+      }
+      return false;
     }
   },
   components: {
@@ -46,6 +67,15 @@ export default {
       this.$router.push({ name: this.$route.matched[this.$route.matched.length - 2].name })
 
       // this.$router.go(-1); // Could work but might be misleading in some situations
+    },
+    noVolverAMostrarAyuda () {
+      cookies.set('ayuda', 'true')
+      this.esAyudaVisible = false
+    }
+  },
+  data () {
+    return {
+      esAyudaVisible: true
     }
   }
 }
