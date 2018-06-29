@@ -18,14 +18,13 @@
 </template>
 
 <script>
-import JornadasPage from './JornadasPage'
 import MenuPage from './MenuPage'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'principal',
   computed: {
-    ...mapGetters('innerNavigator', [
+    ...mapGetters('mainNavigator', [
       'pageStack'
     ]),
     menuIsOpen: {
@@ -38,7 +37,6 @@ export default {
     }
   },
   components: {
-    JornadasPage,
     MenuPage
   },
   methods: {

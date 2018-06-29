@@ -23,12 +23,12 @@ export default {
       essentialLinks: [
         {
           label: 'Iniciar sesión',
-          link: 'link1',
+          link: '/',
           icon: 'fa-id-card-o'
         },
         {
-          label: 'Rules',
-          link: 'link2',
+          label: 'Reglas',
+          link: '/reglas',
           icon: 'fa-book'
         }
       ]
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     goTo (url) {
-      // TODO: Push page
+      this.$router.push(url)
     }
   }
 }

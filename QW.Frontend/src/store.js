@@ -64,7 +64,34 @@ export default new Vuex.Store({
         }
       }
     },
-    innerNavigator: {
+    homeNavigator: {
+      namespaced: true,
+      state: {
+        stack: []
+      },
+      getters: {
+        pageStack: state => state.stack
+      },
+      mutations: {
+        push (state, page) {
+          state.stack.push(page)
+        },
+        pop (state) {
+          if (state.stack.length > 1) {
+            state.stack.pop()
+          }
+        },
+        replace (state, page) {
+          state.stack.pop()
+          state.stack.push(page)
+        },
+        reset (state, page) {
+          console.log(state.stack)
+          state.stack = Array.isArray(page) ? page : [page || state.stack[0]]
+        }
+      }
+    },
+    mainNavigator: {
       namespaced: true,
       state: {
         stack: []

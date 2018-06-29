@@ -16,6 +16,8 @@ import App from './App'
 import HomePage from './pages/HomePage'
 import MainPage from './pages/MainPage'
 import JornadasPage from './pages/JornadasPage'
+import ReglasPage from './pages/ReglasPage'
+import LoginPage from './pages/LoginPage'
 
 $ons.platform.select('android')
 
@@ -33,10 +35,18 @@ Object.values(VOns).forEach(comp => Vue.component(comp.name, comp))
 Vue.use(VueRouter)
 const routes = [
   {
+    name: 'inicio',
     path: '/',
-    component: HomePage
+    component: HomePage,
+    children: [
+      {
+        path: 'reglas',
+        component: ReglasPage
+      }
+    ]
   },
   {
+    name: 'principal',
     path: '/principal',
     component: MainPage,
     children: [
@@ -59,15 +69,32 @@ router.beforeEach((to, from, next) => {
   console.log(to)
   console.log(from)
   console.log(next)
+
+  var matched0 = to.matched[0]
+
   // Reset pageStack to the new route in main navigator
-  store.commit('navigator/reset', to.matched[0].components.default)
+  store.commit('navigator/reset', matched0.components.default)
+
+  var navigator = 'homeNavigator'
+  if (matched0.name === 'principal') {
+    navigator = 'mainNavigator'
+  }
 
   // If there is a child route, then set splitter content inner navigator
   if (to.matched.length > 1) {
     var component = to.matched[1].components.default
 
-    store.commit('innerNavigator/reset', {
+    store.commit(navigator + '/reset', {
       extends: component,
+      data () {
+        return {
+          routeParams: to.params
+        }
+      }
+    })
+  } else if (matched0.name === 'inicio') {
+    store.commit(navigator + '/reset', {
+      extends: LoginPage,
       data () {
         return {
           routeParams: to.params

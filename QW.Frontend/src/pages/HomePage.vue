@@ -8,19 +8,25 @@
       </v-ons-splitter-side>
 
       <v-ons-splitter-content>
-        <login-page></login-page>
+        <v-ons-navigator swipeable swipe-target-width="200px"
+          :page-stack="pageStack"
+          :pop-page="goBack"
+        ></v-ons-navigator>
       </v-ons-splitter-content>
     </v-ons-splitter>
   </v-ons-page>
 </template>
 
 <script>
-import LoginPage from './LoginPage'
 import MenuPage from './MenuPage'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
   computed: {
+    ...mapGetters('homeNavigator', [
+      'pageStack'
+    ]),
     menuIsOpen: {
       get () {
         return this.$store.state.splitter.open
@@ -31,8 +37,16 @@ export default {
     }
   },
   components: {
-    LoginPage,
     MenuPage
+  },
+  methods: {
+    /* Override default pop behavior and delegate it to the router */
+    goBack () {
+      // Go to the parent route component
+      this.$router.push({ name: this.$route.matched[this.$route.matched.length - 2].name })
+
+      // this.$router.go(-1); // Could work but might be misleading in some situations
+    }
   }
 }
 </script>
