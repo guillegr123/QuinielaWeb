@@ -54,6 +54,14 @@ const routes = [
         path: ':etapaNivel1/partidos',
         component: JornadasPage,
         props: true
+      },
+      {
+        path: 'puntajes',
+        component: ReglasPage
+      },
+      {
+        path: 'reglas',
+        component: ReglasPage
       }
     ]
   }
@@ -93,6 +101,10 @@ router.beforeEach((to, from, next) => {
       }
     })
   } else if (matched0.name === 'inicio') {
+    // Logout
+    store.commit('usuario/limpiar')
+
+    // Go to login page
     store.commit(navigator + '/reset', {
       extends: LoginPage,
       data () {

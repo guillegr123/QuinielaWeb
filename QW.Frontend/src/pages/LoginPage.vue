@@ -74,9 +74,9 @@ export default {
             this.inicioSesion.msjError = null
             this.$store.commit('splitter/toggle', false)
             console.log('Login exitoso. Yendo a pagina principal...')
-            // this.$router.push('principal')
+            this.$router.push('principal/Grupos/partidos')
           }
-          this.$router.push('principal/Grupos/partidos')
+          // this.$router.push('principal/Grupos/partidos')
           this.procesando = false
         })
     }

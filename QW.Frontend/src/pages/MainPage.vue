@@ -4,7 +4,7 @@
       <v-ons-splitter-side swipeable collapse width="250px"
         :animation="$ons.platform.isAndroid() ? 'overlay' : 'reveal'"
         :open.sync="menuIsOpen">
-        <menu-page></menu-page>
+        <main-menu-page></main-menu-page>
       </v-ons-splitter-side>
 
       <v-ons-splitter-content>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import MenuPage from './MenuPage'
+import MainMenuPage from './MainMenuPage'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -37,7 +37,7 @@ export default {
     }
   },
   components: {
-    MenuPage
+    MainMenuPage
   },
   methods: {
     /* Override default pop behavior and delegate it to the router */

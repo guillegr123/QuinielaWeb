@@ -22,21 +22,40 @@ export default {
     return {
       essentialLinks: [
         {
-          label: 'Iniciar sesión',
-          link: '/',
-          icon: 'fa-id-card-o'
+          label: 'Grupos',
+          link: '/principal/Grupos/partidos',
+          icon: 'fa-soccer-ball-o'
+        },
+        {
+          label: 'Eliminatorias',
+          link: '/principal/Eliminatorias/partidos',
+          icon: 'fa-sitemap'
+        },
+        {
+          label: 'Puntajes',
+          link: '/principal/puntajes',
+          icon: 'fa-list-ol'
         },
         {
           label: 'Reglas',
-          link: '/reglas',
+          link: '/principal/reglas',
           icon: 'fa-book'
+        },
+        {
+          label: 'Salir',
+          link: '/',
+          icon: 'power-off'
         }
       ]
     }
   },
   methods: {
     goTo (url) {
-      this.$router.replace(url)
+      if (url === '/') {
+        this.$router.go(-1)
+      } else {
+        this.$router.replace(url)
+      }
     }
   }
 }
