@@ -2,7 +2,7 @@
   <v-ons-page>
     <v-ons-toolbar modifier="transparent"></v-ons-toolbar>
     <div class="header">
-      <img src="../assets/onsenui-logo.png" alt="onsenui-logo">
+      <img src="../assets/worldcup2018.jpg" alt="onsenui-logo">
     </div>
 
     <v-ons-list-title>Menú</v-ons-list-title>
