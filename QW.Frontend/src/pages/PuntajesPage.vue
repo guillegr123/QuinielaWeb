@@ -27,7 +27,9 @@
         <div class="row tbody" v-for="p in puntajes" :key="p.posicion">
           <div class="col-2 col-md-1">{{ p.posicion }}</div>
           <div class="col-8 col-md-4">{{ p.participante }}</div>
-          <div class="d-none d-md-inline col-md-1"></div>
+          <div class="d-none d-md-inline col-md-1">
+            <img :src="'/static/img/flags/' + p.codigoEquipoFav + '.png'" :alt="p.codigoEquipoFav" class="bandera-fav">
+          </div>
           <div class="d-none d-md-inline col-md-2">{{ p.marcadoresAcertados }}</div>
           <div class="d-none d-md-inline col-md-2">{{ p.resultadosAcertados }}</div>
           <div class="col-2 col-md-2">{{ p.puntos }}</div>
@@ -64,4 +66,7 @@ export default {
 
 <!-- Add "scoped" adivivibute to limit CSS to divis component only -->
 <style scoped>
+.bandera-fav {
+  max-width: 100%
+}
 </style>
