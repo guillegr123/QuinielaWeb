@@ -16,6 +16,7 @@ import App from './App'
 import HomePage from './pages/HomePage'
 import MainPage from './pages/MainPage'
 import JornadasPage from './pages/JornadasPage'
+import PuntajesPage from './pages/PuntajesPage'
 import ReglasPage from './pages/ReglasPage'
 import LoginPage from './pages/LoginPage'
 
@@ -57,7 +58,7 @@ const routes = [
       },
       {
         path: 'puntajes',
-        component: ReglasPage
+        component: PuntajesPage
       },
       {
         path: 'reglas',
