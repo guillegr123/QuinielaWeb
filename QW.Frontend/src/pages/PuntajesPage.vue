@@ -48,7 +48,11 @@ export default {
     servicioPuntajes.obtenerPuntajes()
       .then((res) => {
         if (res.error) {
-          // TODO: Mostrar mensaje de error
+          if (res.noAutorizado) {
+            this.$router.replace('/')
+          } else {
+            window.alert('Se produjo un error al intentar obtener los puntajes.')
+          }
         } else {
           this.puntajes = res.puntajes
         }

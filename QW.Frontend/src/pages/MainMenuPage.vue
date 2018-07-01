@@ -5,7 +5,7 @@
       <img src="../assets/worldcup2018.jpg" alt="onsenui-logo">
     </div>
 
-    <v-ons-list-title>Menú</v-ons-list-title>
+    <v-ons-list-title>{{ nombreUsuario }}</v-ons-list-title>
     <v-ons-list>
       <v-ons-list-item modifier="chevron" v-for="item in essentialLinks" @click="goTo(item.link)" :key="item.link">
         <div class="left"><v-ons-icon fixed-width :icon="item.icon"></v-ons-icon></div>
@@ -16,6 +16,9 @@
 </template>
 
 <script>
+import servicioAutenticacion from './../modules/autenticacion'
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'startMenu',
   data () {
@@ -52,11 +55,23 @@ export default {
   methods: {
     goTo (url) {
       if (url === '/') {
-        this.$router.go(-1)
+        servicioAutenticacion.cerrarSesion(this.$store)
+          .then((res) => {
+            if (res.msjError) {
+              window.alert(res.msjError)
+            } else {
+              this.$router.go(-1)
+            }
+          })
       } else {
         this.$router.replace(url)
       }
     }
+  },
+  computed: {
+    ...mapGetters('usuario', [
+      'nombreUsuario'
+    ])
   }
 }
 </script>

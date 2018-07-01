@@ -131,7 +131,11 @@ export default {
       ServicioPartidos.guardarPronostico(this.pronostico.partido.idPartido, this.pronostico.goles1, this.pronostico.goles2)
         .then((res) => {
           if (res.error) {
-            window.alert('Ocurrió un error al intentar guardar el pronóstico. Recargue la página e intente nuevamente.')
+            if (res.noAutorizado) {
+              this.$router.replace('/')
+            } else {
+              window.alert('Ocurrió un error al intentar guardar el pronóstico. Recargue la página e intente nuevamente.')
+            }
           } else {
             this.pronostico.partido.golesPronostico1 = this.pronostico.goles1
             this.pronostico.partido.golesPronostico2 = this.pronostico.goles2

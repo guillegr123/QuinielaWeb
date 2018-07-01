@@ -26,12 +26,16 @@ export default new Vuex.Store({
         estaAutenticado: true,
         nombreUsuario: null
       },
+      getters: {
+        nombreUsuario: state => state.nombreUsuario
+      },
       mutations: {
         establecer (state, nombreUsuario) {
           state.nombreUsuario = nombreUsuario
           state.estaAutenticado = true
         },
         limpiar (state) {
+          console.log('Limpiando datos de usuario')
           state.nombreUsuario = null
           state.estaAutenticado = false
         }

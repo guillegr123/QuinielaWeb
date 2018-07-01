@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Comun from './comun'
 
 const API_URL = '' // 'http://localhost:60402'
 
@@ -13,8 +14,7 @@ export default {
       .then((res) => {
         return res.data
       }).catch((error) => {
-        console.log(error)
-        return { error: true }
+        return Comun.manejarErrorHttp(error)
       })
   }
 }
