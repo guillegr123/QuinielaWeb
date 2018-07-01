@@ -1,6 +1,19 @@
 # Bitácora de cambios
 Los cambios notables a este proyecto se documentan en este archivo, a partir de la versión 2.0.0, siguiendo los lineamientos de [Keep a changelog](https://keepachangelog.com/en/1.0.0/). Este proyecto sigue los lineamientos de [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html).
 
+## [v2.1.0](https://github.com/guillegr123/QuinielaWeb/tree/v2.1.0) - 2018-07-01
+
+### Agregado
+- Llamar a cierre de sesión en servicio web, al presionar el botón de cierre de sesión en vista.
+- Cerrar menú lateral en cada cambio de página.
+- Redireccionar a inicio de sesión, cuando se intente acceder a ruta sin haber iniciado sesión.
+- Mostrar alias de usuario en menú lateral.
+
+### Removido
+- Archivos de frontend viejo, y paquetes relacionados.
+- Componente v-ons-list de página de inicio de sesión.
+
+
 ## [v2.0.0](https://github.com/guillegr123/QuinielaWeb/tree/v2.0.0) - 2018-06-29
 
 ### Agregado
