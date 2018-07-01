@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QW.Data", "QW.Data\QW.Data.
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "QW.Db", "QW.Db\QW.Db.sqlproj", "{20805955-FAFE-489D-B591-0428ADB2BA6F}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "QW.Frontend", "QW.Frontend\QW.Frontend.njsproj", "{E95AE9B4-A943-4F6D-93EC-685E293E377A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{20805955-FAFE-489D-B591-0428ADB2BA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20805955-FAFE-489D-B591-0428ADB2BA6F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{20805955-FAFE-489D-B591-0428ADB2BA6F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E95AE9B4-A943-4F6D-93EC-685E293E377A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95AE9B4-A943-4F6D-93EC-685E293E377A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95AE9B4-A943-4F6D-93EC-685E293E377A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95AE9B4-A943-4F6D-93EC-685E293E377A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

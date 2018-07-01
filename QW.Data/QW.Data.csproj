@@ -48,11 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Etapa.cs" />
     <Compile Include="Entities\Participante.cs" />
     <Compile Include="Entities\Partido.cs" />
     <Compile Include="Entities\Pronostico.cs" />
-    <Compile Include="Mappings\EtapaMap.cs" />
     <Compile Include="Mappings\ParticipanteMap.cs" />
     <Compile Include="Mappings\PartidoMap.cs" />
     <Compile Include="Mappings\PronosticoMap.cs" />
