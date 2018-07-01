@@ -26,6 +26,9 @@ export default new Vuex.Store({
         estaAutenticado: true,
         nombreUsuario: null
       },
+      getters: {
+        nombreUsuario: state => state.nombreUsuario
+      },
       mutations: {
         establecer (state, nombreUsuario) {
           state.nombreUsuario = nombreUsuario
