@@ -36,6 +36,7 @@ export default {
   },
   methods: {
     goTo (url) {
+      this.$store.commit('splitter/toggle', false)
       this.$router.replace(url)
     }
   }
