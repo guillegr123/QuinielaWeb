@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\modules\autenticacion.ts" />
+    <TypeScriptCompile Include="src\modules\comun.ts" />
     <TypeScriptCompile Include="src\modules\cookies.ts" />
     <TypeScriptCompile Include="src\modules\partidos.ts" />
     <TypeScriptCompile Include="src\modules\puntajes.ts" />
