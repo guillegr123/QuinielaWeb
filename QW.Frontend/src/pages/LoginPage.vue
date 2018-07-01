@@ -68,7 +68,7 @@ export default {
   methods: {
     iniciarSesion () {
       this.procesando = true
-      servicioAutenticacion.iniciarSesion(this, this.inicioSesion.alias, this.inicioSesion.contrasena)
+      servicioAutenticacion.iniciarSesion(this.$store, this.inicioSesion.alias, this.inicioSesion.contrasena)
         .then((res) => {
           if (res.msjError) {
             this.inicioSesion.contrasena = null

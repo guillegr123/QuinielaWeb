@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import servicioAutenticacion from './../modules/autenticacion'
+
 export default {
   name: 'startMenu',
   data () {
@@ -52,7 +54,14 @@ export default {
   methods: {
     goTo (url) {
       if (url === '/') {
-        this.$router.go(-1)
+        servicioAutenticacion.cerrarSesion(this.$store)
+          .then((res) => {
+            if (res.msjError) {
+              window.alert(res.msjError)
+            } else {
+              this.$router.go(-1)
+            }
+          })
       } else {
         this.$router.replace(url)
       }
