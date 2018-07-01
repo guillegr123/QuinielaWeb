@@ -1,8 +1,6 @@
 ﻿using ServiceStack.ServiceHost;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace QW.Services.Models.EstadisticasModels
 {
@@ -13,6 +11,7 @@ namespace QW.Services.Models.EstadisticasModels
         public int MarcadoresAcertados { set; get; }
         public int ResultadosAcertados { set; get; }
         public int Puntos { set; get; }
+        public string CodigoEquipoFav { set; get; }
     }
 
     public class Resumen

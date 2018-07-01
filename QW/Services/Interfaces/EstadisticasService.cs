@@ -74,7 +74,8 @@ namespace QW.Services.Interfaces
                     Participante = (string)tuple[0],
                     MarcadoresAcertados = (int)tuple[1],
                     ResultadosAcertados = (int)tuple[2],
-                    Puntos = (int)tuple[3]
+                    Puntos = (int)tuple[3],
+                    CodigoEquipoFav = (string)tuple[4]
                 };
             }
         }

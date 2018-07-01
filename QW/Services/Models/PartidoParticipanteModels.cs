@@ -1,8 +1,6 @@
 ﻿using ServiceStack.ServiceHost;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace QW.Services.Models.PartidoParticipante
 {
@@ -13,7 +11,14 @@ namespace QW.Services.Models.PartidoParticipante
 
     public class PartidosParticipanteResponse
     {
-        public IList<EtapaPartido> Etapas { get; set; }
+        public IList<Etapa> Etapas { get; set; }
+    }
+
+    public class Etapa
+    {
+        public string Nombre { set; get; }
+        public IList<Etapa> SubEtapas { set; get; }
+        public IList<PartidoParticipante> Partidos { set; get; }
     }
 
     /// <summary>
@@ -44,7 +49,11 @@ namespace QW.Services.Models.PartidoParticipante
         {
             get
             {
-                return Finalizado && Goles1 == GolesPronostico1 && Goles2 == GolesPronostico2;
+                return
+                    Finalizado
+                    && GolesPronostico1 != null
+                    && GolesPronostico2 != null
+                    && Goles1 == GolesPronostico1 && Goles2 == GolesPronostico2;
             }
         }
         public bool ResultadoAcertado
@@ -53,6 +62,8 @@ namespace QW.Services.Models.PartidoParticipante
             {
                 return
                     Finalizado
+                    && GolesPronostico1 != null
+                    && GolesPronostico2 != null
                     && (
                         (Goles1 > Goles2 && GolesPronostico1 > GolesPronostico2)
                         ||
@@ -68,23 +79,10 @@ namespace QW.Services.Models.PartidoParticipante
         public string Lugar { set; get; }
     }
 
-    public class EtapaPartido
-    {
-        public int NumEtapa { set; get; }
-        public string NombreEtapa { set; get; }
-        public bool Activa { set; get; }
-        public IList<PartidoParticipante> Partidos { get; set; }
-
-        public EtapaPartido()
-        {
-            Partidos = new List<PartidoParticipante>();
-        }
-    }
-
     [Api("Get all pronosticos for participante.")]
-    [Route("/participante/pronosticos", "GET, OPTIONS")]
+    [Route("/participante/pronosticos/{EtapaNivel1}", "GET, OPTIONS")]
     public class PartidosParticipante : IReturn<PartidosParticipanteResponse>
     {
-        //public int? IdParticipante { get; set; }
+        public string EtapaNivel1 { get; set; }
     }
 }

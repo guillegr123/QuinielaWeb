@@ -37,13 +37,12 @@ namespace QW.Services.Interfaces
             EtapaPartidoPronostico pp = null;
             Pronostico pronostico = null;
             Participante participante = null;
-            Etapa etapa = null;
             var query
                 = QwNhSession.QueryOver<Partido>()
-                    .Inner.JoinAlias(x => x.EtapaPartido, () => etapa)
                     .Left.JoinAlias(x => x.PronosticosPartidos, () => pronostico, x => x.ParticipantePronostico.IdParticipante == idParticipante)
                     .Left.JoinAlias(y => pronostico.ParticipantePronostico, () => participante, x => x.IdParticipante == idParticipante)
                     //.Where(x => participante.IdParticipante == null || participante.IdParticipante == idParticipante)
+                    .Where(x => x.EtapaNivel1 == partidosParticipante.EtapaNivel1)
                     .SelectList(list =>list
                         .Select(x => x.Codigo1).WithAlias(() => pp.Codigo1)
                         .Select(x => x.Codigo2).WithAlias(() => pp.Codigo2)
@@ -54,11 +53,12 @@ namespace QW.Services.Interfaces
                         .Select(x => x.IdPartido).WithAlias(() => pp.IdPartido)
                         .Select(x => pronostico.Goles1).WithAlias(() => pp.GolesPronostico1)
                         .Select(x => pronostico.Goles2).WithAlias(() => pp.GolesPronostico2)
-                        .Select(x => etapa.IdEtapa).WithAlias(() => pp.NumEtapa)
-                        .Select(x => etapa.Nombre).WithAlias(() => pp.Etapa)
                         .Select(x => x.FechaHoraInicio).WithAlias(() => pp.FechaHoraInicio)
                         .Select(x => x.FechaHoraFin).WithAlias(() => pp.FechaHoraFin)
                         .Select(x => x.Lugar).WithAlias(() => pp.Lugar)
+                        .Select(x => x.EtapaNivel1).WithAlias(() => pp.EtapaNivel1)
+                        .Select(x => x.EtapaNivel2).WithAlias(() => pp.EtapaNivel2)
+                        .Select(x => x.EtapaNivel3).WithAlias(() => pp.EtapaNivel3)
                         )
                     .OrderBy(x => x.FechaHoraInicio).Asc
                     .TransformUsing(Transformers.AliasToBean<EtapaPartidoPronostico>());
@@ -66,30 +66,34 @@ namespace QW.Services.Interfaces
             return new PartidosParticipanteResponse
             {
                 Etapas
-                    = query.List<EtapaPartidoPronostico>().GroupBy(x => x.NumEtapa)
-                        .Select(x => {
-                                EtapaPartido ep = new EtapaPartido();
-                                ep.NumEtapa = x.Key;
-                                ep.NombreEtapa = x.First().Etapa;
-                                ep.Partidos
-                                    = x.Select(y => new PartidoParticipante() {
-                                            Codigo1 = y.Codigo1,
-                                            Codigo2 = y.Codigo2,
-                                            Equipo1 = y.Equipo1,
-                                            Equipo2 = y.Equipo2,
-                                            Goles1 = y.Goles1,
-                                            Goles2 = y.Goles2,
-                                            GolesPronostico1 = y.GolesPronostico1,
-                                            GolesPronostico2 = y.GolesPronostico2,
-                                            IdPartido = y.IdPartido,
-                                            FechaHoraInicio = y.FechaHoraInicio,
-                                            Lugar = y.Lugar,
-                                            Iniciado = Partido.PartidoIniciado(y.FechaHoraInicio),
-                                            Finalizado = DateTime.Now.Subtract(y.FechaHoraFin).TotalMinutes > 0
-                                        }).ToList();
-                                ep.Activa = !ep.Partidos.Any(z => !z.Definido) && ep.Partidos.Any(z => !z.Finalizado);
-                                return ep;
-                            }).ToList()
+                    = query.List<EtapaPartidoPronostico>()
+                        .GroupBy(x => x.EtapaNivel2)
+                        .Select(x => new Etapa
+                        {
+                            Nombre = x.Key,
+                            SubEtapas
+                                = x.GroupBy(y => y.EtapaNivel3)
+                                    .Select(y => new Etapa
+                                    {
+                                        Nombre = y.Key,
+                                        Partidos = y.Select(z => new PartidoParticipante
+                                        {
+                                            IdPartido = z.IdPartido,
+                                            Codigo1 = z.Codigo1,
+                                            Codigo2 = z.Codigo2,
+                                            Equipo1 = z.Equipo1,
+                                            Equipo2 = z.Equipo2,
+                                            Goles1 = z.Goles1,
+                                            Goles2 = z.Goles2,
+                                            GolesPronostico1 = z.GolesPronostico1,
+                                            GolesPronostico2 = z.GolesPronostico2,
+                                            FechaHoraInicio = z.FechaHoraInicio,
+                                            Lugar = z.Lugar,
+                                            Iniciado = Partido.PartidoIniciado(z.FechaHoraInicio),
+                                            Finalizado = DateTime.Now.Subtract(z.FechaHoraFin).TotalMinutes > 0
+                                        }).ToList()
+                                    }).ToList()
+                        }).ToList()
             };
         }
     }

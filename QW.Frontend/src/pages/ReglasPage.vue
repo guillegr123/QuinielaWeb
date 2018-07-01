@@ -1,0 +1,45 @@
+<template>
+  <v-ons-page>
+    <v-ons-toolbar class="home-toolbar">
+      <div class="left">
+        <v-ons-toolbar-button @click="$store.commit('splitter/toggle')">
+          <v-ons-icon icon="fa-bars"></v-ons-icon>
+        </v-ons-toolbar-button>
+      </div>
+      <div class="center">Quiniela Mundial 2018</div>
+    </v-ons-toolbar>
+    <v-ons-card>
+      <div class="title">
+        Reglas de la quiniela mundialista 2018
+      </div>
+      <div class="content">
+        <ol>
+          <li>El costo de la inscripción es de 2 USD, para toda la quiniela.</li>
+          <li>Los pronósticos se pueden ingresar y modificar hasta 30 minutos antes de cada partido.</li>
+          <li>Si el participante acierta el marcador exacto de un partido, se le otorgan 3 puntos. Solamente se toman en cuenta los goles marcados en tiempo reglamentario y extra. En caso de empate, no se toman los goles anotados en la etapa de penales.</li>
+          <li>Si se acierta el resultado, se otorgará 1 punto.</li>
+          <li>Se otorgará doble puntaje cuando sean partidos en los que participe el equipo favorito.</li>
+          <li>No se pueden transferir puntos entre participantes.</li>
+          <li>El que tenga mas puntos al final de todos los partidos, se ganara el 50&#37; de lo recolectado, el segundo lugar el 30&#37; y el tercer lugar el 20&#37;, siempre y cuando no exista empate en puntos entre los participantes que conforman los primeros lugares.</li>
+          <li>Si se diera un empate, se repartirá equitativamente el porcentaje del premio correspondiente a la cantidad de personas que empataron. Por ejemplo:
+            <ul>
+              <li>Si se diera empate en puntos en el primer lugar entre 2 personas, entonces se reparte el 80&#37; entre los ganadores, y el restante 20&#37; será para el o los ganadores con el puntaje mas próximo.</li>
+              <li>Si se diera empate en puntos en el primer lugar entre 3 o mas personas, entonces se reparte el 100&#37; entre los ganadores.</li>
+              <li>Si solo una persona tiene el primer lugar, y 2 o mas tienen el segundo mayor puntaje, el primer lugar se lleva el 50&#37; y el restante 50&#37; será para los que tuvieron el segundo puntaje mayor.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </v-ons-card>
+  </v-ons-page>
+</template>
+
+<script>
+export default {
+  name: 'reglas'
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>

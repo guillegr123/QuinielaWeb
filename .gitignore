@@ -433,3 +433,9 @@ __pycache__/
 
 
 # End of https://www.gitignore.io/api/csharp,visualstudio
+
+
+# Custom
+
+# Folder for built UI assets
+QW/wwwroot/

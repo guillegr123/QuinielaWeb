@@ -5,7 +5,8 @@ BEGIN
 		PA.Alias                    Participante,
 		SUM(CALC.MarcadorAcertado)  MarcadoresAcertados,
 		SUM(CALC.ResultadoAcertado) ResultadosAcertados,
-		SUM(((CALC.MarcadorAcertado * 2) + CALC.ResultadoAcertado) * CALC.MultiplicadorFav) Puntos
+		SUM(((CALC.MarcadorAcertado * 2) + CALC.ResultadoAcertado) * CALC.MultiplicadorFav) Puntos,
+		PA.CodigoEquipoFav			CodigoEquipoFav
 	FROM dbo.Participante PA
 		INNER JOIN dbo.Pronostico PR
 			ON PA.IdParticipante = PR.IdParticipante
@@ -27,7 +28,7 @@ BEGIN
 				END AS MultiplicadorFav
 		) AS CALC
 	WHERE PT.FechaHoraFin < GETUTCDATE()
-	GROUP BY PA.Alias
+	GROUP BY PA.Alias, PA.CodigoEquipoFav
 	ORDER BY 4 DESC;
 
 	RETURN 0;

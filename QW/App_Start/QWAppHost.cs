@@ -6,6 +6,7 @@ namespace QW.App_Start
 {
     using Funq;
     using QW.Data;
+    using QW.Handlers;
     using ServiceStack.ServiceInterface;
     using ServiceStack.ServiceInterface.Cors;
     using ServiceStack.Text;
@@ -37,7 +38,7 @@ namespace QW.App_Start
             //container.RegisterAutoWiredAs<RepositoryVendorMongo, IRepositoryVendor>();
 
             //Enable CORS
-            Plugins.Add(new CorsFeature());
+            Plugins.Add(new CorsFeature()); //Plugins.Add(new CorsFeature(allowCredentials: true, allowOriginWhitelist: new[] { "http://localhost:8080" }));
 
             //Enable session
             Plugins.Add(new SessionFeature());
@@ -46,6 +47,18 @@ namespace QW.App_Start
             {
                 //DebugMode = true //Show StackTraces for easier debugging (default auto inferred by Debug/Release builds)
             });
+
+            var basePath = HttpRuntime.AppDomainAppPath + "wwwroot\\";
+
+            // Server static files
+            CatchAllHandlers.Add(
+                (httpMethod, pathInfo, filePath) =>
+                    StaticFileHandler.Factory(
+                        basePath,
+                        "/",
+                        pathInfo
+                )
+            );
         }
 
 

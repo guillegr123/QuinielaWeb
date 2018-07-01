@@ -10,6 +10,7 @@
     [FechaHoraInicio] DATETIME NULL, 
     [FechaHoraFin] DATETIME NULL, 
     [Lugar] VARCHAR(100) NULL, 
-    [IdEtapa] INT NOT NULL,
-	CONSTRAINT [FK_Partido_Etapa] FOREIGN KEY ([IdEtapa]) REFERENCES [dbo].[Etapa] ([IdEtapa])
+    [EtapaNivel1] VARCHAR(20) NOT NULL DEFAULT '',
+    [EtapaNivel2] VARCHAR(20) NOT NULL DEFAULT '', 
+    [EtapaNivel3] VARCHAR(20) NOT NULL DEFAULT ''
 )
