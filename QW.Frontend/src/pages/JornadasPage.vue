@@ -29,11 +29,15 @@ export default {
   name: 'jornadas',
   created () {
     ServicioPartidos.obtenerPronosticosParticipante(this.routeParams.etapaNivel1)
-      .then((jornadas) => {
-        if (jornadas.error) {
-          // TODO: Mostrar mensaje de error
+      .then((res) => {
+        if (res.error) {
+          if (res.noAutorizado) {
+            this.$router.replace('/')
+          } else {
+            window.alert('Se produjo un error al intentar obtener los puntajes.')
+          }
         } else {
-          jornadas.etapas.forEach(e => {
+          res.etapas.forEach(e => {
             this.internalTabs.push({
               icon: null,
               label: e.nombre,

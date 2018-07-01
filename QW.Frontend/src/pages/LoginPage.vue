@@ -68,7 +68,6 @@ export default {
             this.inicioSesion.msjError = res.msjError
           } else {
             this.inicioSesion.msjError = null
-            this.$store.commit('splitter/toggle', false)
             console.log('Login exitoso. Yendo a pagina principal...')
             this.$router.push('principal/Grupos/partidos')
           }

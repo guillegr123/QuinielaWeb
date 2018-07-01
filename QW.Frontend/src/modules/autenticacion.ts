@@ -49,7 +49,6 @@ export default {
     return axios.get(API_LOGOUT_URL)
       .then((res) => {
         if (res.data.resultado) {
-          store.commit('usuario/limpiar')
           return {
             msjError: null
           }

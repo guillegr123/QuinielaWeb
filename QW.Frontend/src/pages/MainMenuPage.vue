@@ -60,12 +60,10 @@ export default {
             if (res.msjError) {
               window.alert(res.msjError)
             } else {
-              this.$store.commit('splitter/toggle', false)
               this.$router.go(-1)
             }
           })
       } else {
-        this.$store.commit('splitter/toggle', false)
         this.$router.replace(url)
       }
     }

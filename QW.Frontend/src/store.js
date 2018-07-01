@@ -32,6 +32,7 @@ export default new Vuex.Store({
           state.estaAutenticado = true
         },
         limpiar (state) {
+          console.log('Limpiando datos de usuario')
           state.nombreUsuario = null
           state.estaAutenticado = false
         }

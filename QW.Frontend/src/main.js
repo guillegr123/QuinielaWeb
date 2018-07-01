@@ -115,6 +115,10 @@ router.beforeEach((to, from, next) => {
       }
     })
   }
+
+  // Cerrando menú
+  store.commit('splitter/toggle', false)
+
   next()
 })
 
